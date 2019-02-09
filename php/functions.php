@@ -70,6 +70,43 @@
     }
 // ******************************************************************************
 
+
+function GetAgencies() {
+    include_once("classes.php");
+
+    $dbh = ConnectDB();
+
+    $sql = "SELECT * FROM agencies";
+
+    if (!$result = $dbh->query($sql)) {
+        echo "ERROR: the SQL failed to execute. <br>";
+        echo "SQL: $sql <br>";
+        echo "Error #: ". $dbh->errno . "<br>";
+        echo "Error msg: " . $dbh->error . " <br>";
+    }
+
+    if ($result === 0) {
+        echo "There were no results<br>";
+    }
+    $agencies = array();
+    while ($agen = $result->fetch_assoc()){
+        $agency = new Agency(
+            $agen["AgencyId"],
+            $agen["AgncyAddress"],
+            $agen["AgncyCity"],
+            $agen["AgncyCountry"],
+            $agen["AgncyFax"],
+            $agen["AgncyPhone"],
+            $agen["AgncyPostal"],
+            $agen["AgncyProv"]);
+        $agencies[] = $agency;
+    }
+
+    return $agencies;
+}
+
+// ******************************************************************************
+
 ?>
 
     
