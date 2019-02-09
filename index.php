@@ -9,26 +9,17 @@
 //************************************************************************* */
 
 include_once('php/top.php'); 
-?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-<title>Travel Experts</title>
-<?php include_once('php/head.php'); ?> 
-
-</head>
 
 
-<body>
+include_once('php/head.php'); ?> 
+
     <header>
         <?php include_once('php/Header.php'); ?>
     </header>
 
-    <nav>
+    
     <?php include_once("php/nav.php"); ?>
-    </nav>
+    
 
 
 

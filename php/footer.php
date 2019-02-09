@@ -9,5 +9,5 @@
 //************************************************************************* */
 ?>
     <footer>
-        Copyright 2019 Fab Five &copy;
+        Copyright 2019 Fabulous Five &copy;
     </footer>

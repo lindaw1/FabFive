@@ -7,10 +7,7 @@
 //
 // Requirements:    
 //************************************************************************* */
-?>
 
-
-<?php
 
 $hour = new DateTime("now", new DateTimeZone('America/Edmonton'));
 $hour = $hour->format('H');
