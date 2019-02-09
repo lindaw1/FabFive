@@ -35,5 +35,5 @@ include_once('php/top.php');
 <?php include_once('php/footer.php');?>
 
 </body>
-
+<script src="script.js"></script>
 </html>
