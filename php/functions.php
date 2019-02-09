@@ -94,11 +94,13 @@ function GetAgencies() {
             $agen["AgencyId"],
             $agen["AgncyAddress"],
             $agen["AgncyCity"],
-            $agen["AgncyCountry"],
-            $agen["AgncyFax"],
-            $agen["AgncyPhone"],
+            $agen["AgncyProv"],
             $agen["AgncyPostal"],
-            $agen["AgncyProv"]);
+            $agen["AgncyCountry"],           
+            $agen["AgncyFax"],
+            $agen["AgncyPhone"]);
+
+
         $agencies[] = $agency;
     }
 
