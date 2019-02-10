@@ -9,6 +9,7 @@
 //************************************************************************* */
 
 include_once('php/top.php'); 
+$agencies = GetAgencies();
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +30,26 @@ include_once('php/top.php');
     <nav>
     <?php include_once("php/nav.php"); ?>
     </nav>
+    <section>
+        <table >
+        <?php
+            foreach ($agencies as $agen) {
+            print("<tr>");
 
+            print("<td>". $agen->getId() ."</td>");
+            print("<td>". $agen->getAddress() ."</td>");
+            print("<td>". $agen->getCity() ."</td>");
+            print("<td>". $agen->getProv() ."</td>");
+            print("<td>". $agen->getPostal() ."</td>");
+            print("<td>". $agen->getCountry() ."</td>");
+            print("<td>". $agen->getPhone() ."</td>");
+            print("<td>". $agen->getFax() ."</td>");
+            print("</tr>");
+            }
+
+        ?>
+        </table>
+    </section>
 
 
 <?php include_once('php/footer.php');?>
