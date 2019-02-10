@@ -79,4 +79,93 @@
 		}
 	}
 
+class Package {
+        //set properties
+        private $PackageId;
+        private $PkgName;
+        private $PkgStartDate;
+        private $PkgEndDate;
+        private $PkgDesc;
+        private $PkgBasePrice;
+        private $PkgAgencyCommission;
+
+
+        //
+        public function __construct($tempPackageId, $tempPkgName, $tempPkgStartDate, $tempPkgEndDate, $tempPkgDesc, $tempPkgBasePrice, $tempPkgAgencyCommission) {
+            
+            $this->PackageId = $tempPackageId;
+            $this->PkgName = $tempPkgName;
+            $this->PkgStartDate = $tempPkgStartDate;
+            $this->PkgEndDate = $tempPkgEndDate;
+            $this->PkgDesc = $tempPkgDesc;
+            $this->PkgBasePrice = $tempPkgBasePrice;
+			$this->PkgAgencyCommission = $tempPkgAgencyCommission;
+			}
+
+
+        public function getPackageId(){
+            return $this->PackageId;
+        }
+
+        public function setPackageId($tempPackageId){
+            $this->PackageId = $tempPackageId;   
+        }
+
+        public function getPkgName(){
+            return $this->PkgName;
+        }
+
+        public function setPkgName($tempPkgName){
+            $this->PkgName = $tempPkgName;   
+        }
+
+        public function getPkgStartDate(){
+            return $this->PkgStartDate;
+        }
+
+        public function setPkgStartDate($tempPkgStartDate){
+            $this->MiddleInitial = $tempPkgStartDate;   
+        }
+
+        public function getPkgEndDate(){
+            return $this->PkgEndDate;
+        }
+
+        public function setPkgEndDate($tempPkgEndDate){
+            $this->PkgEndDate = $tempPkgEndDate;   
+        }
+
+        public function getPkgDesc(){
+            return $this->PkgDesc;
+        }
+
+        public function setPkgDesc($tempPkgDesc){
+            $this->PkgDesc = $tempPkgDesc;   
+        }
+
+        public function getPkgBasePrice(){
+            return $this->PkgBasePrice;
+        }
+
+        public function setPkgBasePrice($tempPkgBasePrice){
+            $this->PkgBasePrice = $tempPkgBasePrice;   
+        }
+
+        public function getPkgAgencyCommission(){
+            return $this->getPkgAgencyCommission;
+        }
+
+        public function setPkgAgencyCommission($tempPkgAgencyCommission){
+            $this->PkgAgencyCommission = $tempPkgAgencyCommission;   
+        }
+
+        public function getPropertyArray() {
+            $tempArray = array();
+            foreach ($this as $key => $value) {
+                $tempArray[$key] = $value;
+            }
+            return $tempArray;
+         }
+}
+
 ?>
