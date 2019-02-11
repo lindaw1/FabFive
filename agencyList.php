@@ -2,7 +2,7 @@
 //***************************************************************************
 // Authors: Stuart Peters, Hoang (Eric) Truong, Linda Wallace
 // Date:    February 15, 2019
-// Purpose: 
+// Purpose: Webpage lists the Locations and agents for Travel Experts
 //
 //
 // Requirements:    
