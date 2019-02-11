@@ -16,7 +16,7 @@
 
     function ConnectDB(){
     
-        $link = mysqli_connect('localhost', 'admin', 'P@ssw0rd', 'travelexperts');
+        $link = mysqli_connect('127.0.0.1', 'admin', 'P@ssw0rd', 'travelexperts');
         if (!$link){
             print("There was an error connecting:". mysqli_errno($link) . " -- " . mysqli_error($link));
             exit;
@@ -94,11 +94,13 @@ function GetAgencies() {
             $agen["AgencyId"],
             $agen["AgncyAddress"],
             $agen["AgncyCity"],
-            $agen["AgncyCountry"],
-            $agen["AgncyFax"],
-            $agen["AgncyPhone"],
+            $agen["AgncyProv"],
             $agen["AgncyPostal"],
-            $agen["AgncyProv"]);
+            $agen["AgncyCountry"],           
+            $agen["AgncyFax"],
+            $agen["AgncyPhone"]);
+
+
         $agencies[] = $agency;
     }
 
@@ -106,6 +108,37 @@ function GetAgencies() {
 }
 
 // ******************************************************************************
+
+
+function getPackages() {
+
+    //open database connection
+    $dbh= ConnectDB();
+   
+    $sql = "SELECT * FROM packages";
+
+    $result = mysqli_query($dbh, $sql);
+
+    // initializing array for all packages
+    $packages = array();
+    // looping through result for each package($pkg)
+    while ($pkg = $result->fetch_assoc()){
+        // Constructing a singe $pkg object
+        print_r($pkg);
+        $package = new Package(
+            $pkg["PackageId"],
+            $pkg["PkgName"],
+            $pkg["PkgStartDate"],
+            $pkg["PkgEndDate"],
+            $pkg["PkgDesc"],
+            $pkg["PkgBasePrice"],
+            $pkg["PkgAgencyCommission"]           
+            );        
+        // adding the pakcage object to array of packages
+        $packages[] = $package;
+    } // end of While 
+    return $packages;
+}
 
 ?>
 
