@@ -12,8 +12,8 @@ echo<<<NAVBAR
         
         <a href="#" class="navItem aboutLink">About</a>
         <a href="#" class="navItem contactLink">Contact</a>
-        <a href="#" class="navItem dealsLink">Deals</a>
-        <div class="navItem  brandLogo"></div>
+        <a href="deals.php" class="navItem dealsLink">Deals</a>
+        <a href="index.php" > <div class="navItem  brandLogo"></div> </a>
         <button class="navItem signInButton">Sign In</button>
         <div class=" navItem shoppingCartLogoContainer"><i class="fas fa-shopping-cart fa-2x"></i></div>
     </nav>

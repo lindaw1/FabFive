@@ -88,6 +88,7 @@ function GetAgencies() {
     if ($result === 0) {
         echo "There were no results<br>";
     }
+
     $agencies = array();
     while ($agen = $result->fetch_assoc()){
         $agency = new Agency(
@@ -123,9 +124,9 @@ function getPackages() {
     $packages = array();
     // looping through result for each package($pkg)
     while ($pkg = $result->fetch_assoc()){
-        // Constructing a singe $pkg object
-        
-        $package = new Package(
+
+        // Constructing a singe $pkg object        
+        $package = new Packages(
             $pkg["PackageId"],
             $pkg["PkgName"],
             $pkg["PkgStartDate"],
@@ -133,7 +134,8 @@ function getPackages() {
             $pkg["PkgDesc"],
             $pkg["PkgBasePrice"],
             $pkg["PkgAgencyCommission"]           
-            );        
+        );
+
         // adding the pakcage object to array of packages
         $packages[] = $package;
     } // end of While 

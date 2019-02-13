@@ -1,27 +1,19 @@
 <?php
 // APPENDING HEAD PART OF HTML PAGE
-include_once ("../php/classes.php");
-include_once ("../php/functions.php");
-
-// APPENDING HEAD PART OF HTML PAGE
     include_once __DIR__.'/phpParts/htmlSections/head.php';
 
 // Add Navigation Bar
     include __DIR__.'/phpParts/pageParts/navBar.php';
 
-// Add Home Page Header
-    include __DIR__.'/phpParts/homePage/headerHome.php';
+// Add Header Page
+include __DIR__.'/phpParts/dealsPage/dealsHeader.php';
 
 // Add OPENING <main> tag for home page
-echo '<main class="homeContent">';
+echo '<main class="dealsContent">';
 
-// Add sales header Title
-echo '<h1 class="homeHotDeals">Our Monlthy Limited Sales:</h1>';
+//**Extract Packages ************************************ */ 
 
-
-//**Extract Data For Sales************************************ */ 
-
-    include __DIR__.'/phpParts/homePage/salesAppend.php';
+    include __DIR__.'/phpParts/dealsPage/packagesAppend.php';
 
 //*************************************** */
 
@@ -34,5 +26,3 @@ include __DIR__.'/phpParts/pageParts/pageFooter.php';
 // APPENDING FOOT PART OF HTML PAGE
     include_once __DIR__.'/phpParts/htmlSections/foot.php';
 ?>
-
-

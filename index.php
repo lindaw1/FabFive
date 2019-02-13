@@ -1,30 +1,36 @@
 <?php
-//***************************************************************************
-// Authors: Stuart Peters, Hoang (Eric) Truong, Linda Wallace
-// Date:    February 15, 2019
-// Purpose: 
-//
-//
-// Requirements:    
-//************************************************************************* */
+// APPENDING HEAD PART OF HTML PAGE
+include_once __DIR__."/php/classes.php";
+include_once __DIR__."/php/functions.php";
 
-include_once('php/top.php'); 
+// APPENDING HEAD PART OF HTML PAGE
+    include_once __DIR__.'/phpParts/htmlSections/head.php';
 
+// Add Navigation Bar
+    include __DIR__.'/phpParts/pageParts/navBar.php';
 
-include_once('php/head.php'); ?> 
+// Add Home Page Header
+    include __DIR__.'/phpParts/homePage/headerHome.php';
 
-    <header>
-        <?php include_once('php/Header.php'); ?>
-    </header>
+// Add OPENING <main> tag for home page
+echo '<main class="homeContent">';
 
-    
-    <?php include_once("php/nav.php"); ?>
-    
+// Add sales header Title
+echo '<h1 class="homeHotDeals">Our Monlthy Limited Sales:</h1>';
 
 
+//**Extract Data For Sales************************************ */ 
 
-<?php include_once('php/footer.php');?>
+    include __DIR__.'/phpParts/homePage/salesAppend.php';
 
-</body>
-<script src="script.js"></script>
-</html>
+//*************************************** */
+
+// Add CLOSING </main> tag for home page
+echo '</main>';
+
+// Add page footer
+include __DIR__.'/phpParts/pageParts/pageFooter.php';
+
+// APPENDING FOOT PART OF HTML PAGE
+    include_once __DIR__.'/phpParts/htmlSections/foot.php';
+?>
