@@ -13,8 +13,7 @@
 <nav>
     
     <a href="index.php">Home</a>
-    <a href="customerLogin.php">Customer Login</a>
-    <a href="agentLogin.php">Agent Login</a>
+    <a href="login.php">Login</a>
     <a href="agencyList.php">Agency List</a>
     <a href="agencyAppend.php">Agency Append</a>
     <a href="productList.php">Packages</a>

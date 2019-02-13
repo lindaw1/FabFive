@@ -15,7 +15,7 @@ include_once('php/top.php');
 <html>
 
 <head>
-<title>Agent Login</title>
+<title>Booking View</title>
 <?php include_once('php/head.php'); ?> 
 
 </head>
