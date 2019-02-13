@@ -9,11 +9,15 @@
 //************************************************************************* */
 
 session_start();
-
+//if session tme not set, set session time
 if (!isset($_SESSION["start_time"])) {
     $_SESSION["start_time"] = time();
 }
 
+//common php includes for all pages
 include_once('php/functions.php');
 include_once('php/variables.php');
+include_once('php/classes.php');
+
+
 ?>
