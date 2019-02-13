@@ -100,7 +100,18 @@
                     print( $_SESSION['loggedIn'] . "<br>"); 
                     print($_SESSION['userType'] . "<br>");
                     print($_SESSION['userId'] . "<br>");
-                    print($_SESSION['firstName'] . "<br>");
+                    print($_SESSION['firstName'] . "<br><br><br>");
+
+                    print ($_SESSION['loginReturnUrl']);
+
+                    if (!$_SESSION['loginReturnUrl']){
+                        //show logout button
+                    } else {
+                        $redirectUrl = "http://localhost/GitHub/FabFive/" . $_SESSION['loginReturnUrl'];
+                        print($redirectUrl);
+                        $_SESSION['loginReturnUrl'] = "";
+                        header("Location: $redirectUrl");
+                    }
 
                 } else {
                     $strError = "There was an error logging into the system.";

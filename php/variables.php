@@ -19,4 +19,23 @@ $packages = array(
   );
 
 
+function getPagePermissions() {
+ 
+  $arrayPagePermissions = array(
+    "agencyAppend.php"=>"agent",
+    "agencyList.php"=>"public",
+    "agentAppend.php"=>"agent",
+    "agentList.php"=>"public",
+    "customerAppend.php"=>"customer",
+    "customerList.php"=>"agent",
+    "index.php"=>"public",
+    "login.php"=>"public",
+    "productAppend.php"=>"agent",
+    "productList.php"=>"public",
+    "order"=>"customer");
+    
+    return $arrayPagePermissions;
+  
+}
 ?>
+
