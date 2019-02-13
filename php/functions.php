@@ -124,7 +124,7 @@ function getPackages() {
     // looping through result for each package($pkg)
     while ($pkg = $result->fetch_assoc()){
         // Constructing a singe $pkg object
-        print_r($pkg);
+        
         $package = new Package(
             $pkg["PackageId"],
             $pkg["PkgName"],

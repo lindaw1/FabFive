@@ -1,5 +1,9 @@
 <?php
 // APPENDING HEAD PART OF HTML PAGE
+include_once ("../php/classes.php");
+include_once ("../php/functions.php");
+
+// APPENDING HEAD PART OF HTML PAGE
     include_once __DIR__.'/phpParts/htmlSections/head.php';
 
 // Add Navigation Bar

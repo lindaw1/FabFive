@@ -81,13 +81,13 @@
 
 class Package {
         //set properties
-        private $PackageId;
-        private $PkgName;
-        private $PkgStartDate;
-        private $PkgEndDate;
-        private $PkgDesc;
-        private $PkgBasePrice;
-        private $PkgAgencyCommission;
+        public $PackageId;
+        public $PkgName;
+        public $PkgStartDate;
+        public $PkgEndDate;
+        public $PkgDesc;
+        public $PkgBasePrice;
+        public $PkgAgencyCommission;
 
 
         //
