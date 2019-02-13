@@ -21,6 +21,8 @@ $dateNum2Word = array(
 
 $vacationPackages = new ViewPackages();
 $packagesCopiedArray = $vacationPackages->showAllPackages();
+// Instantly destoy our class instance to prevent database leakages
+unset($vacationPackages);
 
 // Today Date, For processing Start Date
 date_default_timezone_set("America/Edmonton");
@@ -52,16 +54,20 @@ foreach($packagesCopiedArray as $item){
                     echo '<div class="pkgStar"> <i class="fas fa-star fa-1x" style="color: yellow;"></i> </div>';
                 }
             echo '</div>';
-
+        
+        echo '<a href="#" alt="Package Review Link" class="allReview">View all '.$item['numPkgReviews'].' reviews </a>';
+        
         echo '</div>';
             
-            echo '    <h1 class="pkgTitle">'.$item['PkgName'].'</h1>';
+        echo '    <h1 class="pkgTitle">'.$item['PkgName'].'</h1>';
             
-            echo '    <p class=" pkgSubDesc" >'.$item['PkgSubDesc'].'</p>';
+        echo '    <p class=" pkgSubDesc" >'.$item['PkgSubDesc'].'</p>';
             
-            echo '    <p class=" pkgDesc" >'.$item['PkgDesc'].'</p>';
+        echo '    <p class=" pkgDesc" >'.$item['PkgDesc'].'</p>';
+        echo '    <button class="add2CartBttn" value=" '.$item['PackageId'].'" onClick="letValue(event)"> Add To Cart </button>';
         echo '</div>';
     }
 }
 echo '</div>';
+echo ' <script> function letValue(event){ console.log(event.target.value);  }</script>';
 ?>

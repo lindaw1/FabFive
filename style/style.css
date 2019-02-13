@@ -645,3 +645,35 @@ h1.pkgTitle{
     display: inline-block;
     padding-right: 2px;
 }
+a.allReview{
+    position: absolute;
+    color: red;
+    text-decoration:none;
+    font-size: 67%;
+    left: 10%;
+    top: 12%;
+}
+a.allReview:hover{
+    color: white;
+    text-shadow: 0px 0px 6px black;
+    font-size: 75%;
+}
+button.add2CartBttn{
+    position: absolute;
+    border-radius: 18px;
+    padding: 1% 5%;
+    font-size: 130%;
+    background-color: rgba(56,199,201,1);
+    color: black;
+    border: none;
+    font-weight: 300;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 66%;
+    cursor: pointer;
+}
+button.add2CartBttn:hover{
+    color: white;
+    border: 1px groove rgb(56, 148, 155);
+    background: linear-gradient(to bottom, rgba(51,252,255,1) 0%, rgba(15,183,189,1) 18%, rgba(41,152,158,1) 33%, rgba(31,131,133,1) 40%, rgba(27,119,122,1) 47%, rgba(26,120,125,1) 53%, rgba(32,125,128,1) 60%, rgba(16,158,163,1) 79%, rgba(56,199,201,1) 95%, rgba(56,199,201,1) 100%);
+}
