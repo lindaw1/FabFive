@@ -7,6 +7,8 @@
     <title>Testing</title>
 </head>
 <body>
-    
+    <?PHP
+       
+    ?>
 </body>
 </html>
