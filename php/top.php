@@ -15,9 +15,9 @@ if (!isset($_SESSION["start_time"])) {
 }
 
 //common php includes for all pages
+include_once('php/classes.php');
 include_once('php/functions.php');
 include_once('php/variables.php');
-include_once('php/classes.php');
 
 
 $urlCurrent = $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'];

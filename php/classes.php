@@ -81,13 +81,13 @@
 
 class Package {
         //set properties
-        private $PackageId;
-        private $PkgName;
-        private $PkgStartDate;
-        private $PkgEndDate;
-        private $PkgDesc;
-        private $PkgBasePrice;
-        private $PkgAgencyCommission;
+        protected $PackageId;
+        protected $PkgName;
+        protected $PkgStartDate;
+        protected $PkgEndDate;
+        protected $PkgDesc;
+        protected $PkgBasePrice;
+        protected $PkgAgencyCommission;
 
 
         //
@@ -168,6 +168,14 @@ class Package {
          }
 }
 
+
+// print("hello");
+// $package = new Package("1","1","1","1","1","1","1");
+// print($package->getPackageId());
+
+// print($package->PackageId);
+
+
 //--------------------------------------------------------------------
 //
 //                      Agent Class
@@ -176,16 +184,16 @@ class Package {
 
 class Agent {
     //set properties
-    private $AgentId;
-    private $AgtFirstName;
-    private $AgtMiddleInitial;
-    private $AgtLastName;
-    private $AgtBusPhone;
-    private $AgtEmail;
-    private $AgtPosition;
-    private $AgencyId;
-    private $AgtUsername;
-    private $AgtPassword;
+    protected $AgentId;
+    protected $AgtFirstName;
+    protected $AgtMiddleInitial;
+    protected $AgtLastName;
+    protected $AgtBusPhone;
+    protected $AgtEmail;
+    protected $AgtPosition;
+    protected $AgencyId;
+    protected $AgtUsername;
+    protected $AgtPassword;
 
     //
     public function __construct($tempAgentId, $tempAgtFirstName, $tempAgtMiddleInitial, $tempAgtLastName, $tempAgtBusPhone, $tempAgtEmail, $tempAgtPosition, $tempAgencyId, $tempAgtUsername, $tempAgtPassword) {
@@ -308,19 +316,19 @@ class Agent {
 //--------------------------------------------------------------------
 
 class Customer {
-    private $CustId;
-    private $CustFirstName;
-    private $CustLastName;
-    private $CustHomePhone;
-    private $CustBusPhone;
-    private $CustEmail;
-    private $CustAddress;
-    private $CustCity;
-    private $CustProvince;
-    private $CustPostal;
-    private $CustCountry;
-    private $AgentId;
-    private $CustPassword;
+    protected $CustId;
+    protected $CustFirstName;
+    protected $CustLastName;
+    protected $CustHomePhone;
+    protected $CustBusPhone;
+    protected $CustEmail;
+    protected $CustAddress;
+    protected $CustCity;
+    protected $CustProvince;
+    protected $CustPostal;
+    protected $CustCountry;
+    protected $AgentId;
+    protected $CustPassword;
 
     public function  __construct($tempCustId, $tempCustFirstName, $tempCustLastName, $tempCustHomePhone,
                                 $tempCustBusPhone, $tempCustEmail,$tempCustAddress,$tempCustCity,
@@ -456,13 +464,13 @@ class Customer {
 
 class BookingOrder {
     //set properties
-    private $BookingId;
-    private $BookingDate;
-    private $BookingNo;
-    private $TravelerCount;
-    private $CustomerId;
-    private $TripTypeId;
-    private $PackageId;
+    protected $BookingId;
+    protected $BookingDate;
+    protected $BookingNo;
+    protected $TravelerCount;
+    protected $CustomerId;
+    protected $TripTypeId;
+    protected $PackageId;
 
 
     //
@@ -557,19 +565,19 @@ class BookingOrder {
 
 class BookingDetail {
     //set properties
-    private $BookingDetailId;
-    private $ItineraryNo;
-    private $TripStart;
-    private $TripEnd;
-    private $Description;
-    private $Destination;
-    private $BasePrice;
-    private $AgencyCommission;
-    private $BookingIdIndex;
-    private $RegionIdIndex;
-    private $ClassIdIndex;
-    private $FeeIdIndex;
-    private $ProductSupplier;
+    protected $BookingDetailId;
+    protected $ItineraryNo;
+    protected $TripStart;
+    protected $TripEnd;
+    protected $Description;
+    protected $Destination;
+    protected $BasePrice;
+    protected $AgencyCommission;
+    protected $BookingIdIndex;
+    protected $RegionIdIndex;
+    protected $ClassIdIndex;
+    protected $FeeIdIndex;
+    protected $ProductSupplier;
 
     public function __construct($tempBookingDetailId,$tempItineraryNo,$tempTripStart,$tempTripEnd,$tempDescription, 
                                 $tempDestination, $tempBasePrice,$tempAgencyCommission,$tempBookingIdIndex, 

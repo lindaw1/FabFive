@@ -15,7 +15,7 @@ include_once('php/top.php');
 <html>
 
 <head>
-<title>Travel Experts</title>
+<title>Booking Details</title>
 <?php include_once('php/head.php'); ?> 
 
 </head>

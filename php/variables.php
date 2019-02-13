@@ -32,7 +32,10 @@ function getPagePermissions() {
     "login.php"=>"public",
     "productAppend.php"=>"agent",
     "productList.php"=>"public",
-    "order"=>"customer");
+    "order"=>"customer",
+    "bookingAppend.php"=>"public",
+    "bookingDetails.php"=>"public",
+    "bookingView"=>"public");
     
     return $arrayPagePermissions;
   

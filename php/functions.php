@@ -24,11 +24,28 @@
         return $link;
     }
 
+
+// ******************************************************************************    
+function ConnectDB_Object(){
+
+    $link = new mysqli("localhost", "admin", "P@ssw0rd", "travelexperts");
+
+    // /* check connection */
+    if ($link->connect_errno) {
+        printf("Connect failed: %s\n", $link->connect_error);
+        exit();
+    } else {
+        print("connected");
+    }
+    return $link;
+}
+
 // ******************************************************************************
     function CloseDB($link) {
         mysqli_close($link);
     }
 // ******************************************************************************
+
     function AgentCreate ($agent_data){
         $dbh = ConnectDB();
 
@@ -143,7 +160,7 @@ function getPackages() {
 
 <!--****************************************************************
 *                                                                  *
-*                      GET PACKAGES                                *
+*                      GET PACKAGES_temp (FILTERED)                 *
 *                                                                  *
 *                                                                  *
 ***************************************************************/ -->
@@ -192,6 +209,40 @@ function getPackages() {
 }
 ?>
 
+<!--****************************************************************
+*                                                                  *
+*                      GET PACKAGE BY ID                           *
+*                                                                  *
+*                                                                  *
+***************************************************************/ -->
+
+
+<?php function getPackageById($varPackageId) {
+
+    // //open database connection
+    $dbh= ConnectDB_Object();
+    $sql = "SELECT * FROM packages WHERE PackageId='" . $varPackageId . "'";
+
+    $result = $dbh->query($sql);
+
+    //looping through result for each package ($pkg)
+    while ($pkg = $result->fetch_assoc()){
+        //Constructing a single $pkg object
+        $packageTemp = new Package(
+            $pkg["PackageId"],
+            $pkg["PkgName"],
+            $pkg["PkgStartDate"],
+            $pkg["PkgEndDate"],
+            $pkg["PkgDesc"],
+            $pkg["PkgBasePrice"],
+            $pkg["PkgAgencyCommission"]           
+            );
+    }  
+    return $packageTemp;
+    CloseDB($dbh);
+
+}
+?>
 
 <!--****************************************************************
 *                                                                  *
@@ -303,7 +354,16 @@ function getPackages() {
 
 <!-- ***************************************************************
 *                                                                  *
-*                       FUNCTION CADD OBJECT TO DB                 *
+*                       FUNCTION CREATE  BOOKING/ORDER             *
+*                                                                  *
+*                                                                  *
+***************************************************************/ -->
+
+
+
+<!-- ***************************************************************
+*                                                                  *
+*                       FUNCTION ADD OBJECT TO DB                 *
 *                                                                  *
 *                                                                  *
 ***************************************************************/ -->
