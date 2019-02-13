@@ -118,7 +118,13 @@
                 }
             }
         }
-    }          
+    } else if (isset($_POST["logoutSubmit"])){
+        //logout user
+        unset($_SESSION['loggedIn']);
+        unset($_SESSION['userType']);
+        unset($_SESSION['userId']);
+        unset($_SESSION['firstName']);
+    }         
 ?>
 
 
@@ -144,7 +150,9 @@
     </nav>
     <main>
     <!----------------------------------START LOGIN FORM ------------------------------------->
-
+    <?php
+    if (!isset($_SESSION['loggedIn']))  {  
+        $str = <<<EOF
         <form method="post" action="#" class="reg-form" name="infoForm" id="infoForm">
             <!-- // Username --> 
             <p>
@@ -157,9 +165,19 @@
                 <input type="password" class="formInputCtrl" name="password" id="password">
             </p>                
             <!-- Submit button -->
-            <input type="submit" value="Submit" id="loginSubmit" name="loginSubmit">
+            <input type="submit" value="login" id="loginSubmit" name="loginSubmit">
             <p class="formError" id="formError" display="none"></p>
         </form>
+EOF;
+    } else {
+        $str =  '<form method="post" action="#" class="reg-form" name="infoForm" id="infoForm">';            
+        $str .= "<!-- Submit button -->";
+        $str .= '<input type="submit" value="logout" id="logoutSubmit" name="logoutSubmit">';
+        $str .= '<p class="formError" id="formError" display="none"></p>';
+        $str .= '</form>';
+    }
+    print($str);
+    ?>
     </main>
 
 

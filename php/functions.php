@@ -265,46 +265,38 @@ function getPackages() {
 
 
 
-$url = $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'];
-$path_parts = pathinfo($url);
-// echo $path_parts['basename'];
-$urlRedirectToLogin = $path_parts['dirname'] . "/login.php";
-print($urlRedirectToLogin);
+    $url = $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'];
+    $path_parts = pathinfo($url);
+    // echo $path_parts['basename'];
+    $urlRedirectToLogin = $path_parts['dirname'] . "/login.php";
 
+    $arrayPermissions = getPagePermissions();
 
-$arrayPermissions = getPagePermissions();
+    if (!$arrayPermissions[$strPageName]){
+        $case = 'public'; //default to public view if page is not listed in permssions array
+    } else {
+        $case = $arrayPermissions[$strPageName];
+    }
 
-if (!$arrayPermissions[$strPageName]){
-    $case = 'public'; //default to public view if page is not listed in permssions array
-} else {
-    $case = $arrayPermissions[$strPageName];
-}
-
-print( $_SESSION['loggedIn'] . "<br>"); 
-print($_SESSION['userType'] . "<br>");
-print($_SESSION['userId'] . "<br>");
-print($_SESSION['firstName'] . "<br><br><br>");
-
-switch ($case){
-    case 'public':
-        print("public case");
-        //break statement without action - allows page to load
-        break;
-    case "agent":
-        print("agent case");
-        if (!$_SESSION["userType"] || ($_SESSION["userType"] !='agent')){
-            //user is not logged in - redirect user to login page and set source
-            $_SESSION['loginReturnUrl'] = $strPageName;
-            header("Location: http://localhost/GitHub/FabFive/login.php");
-        }
-        break;
-    case 'customer':
-        print("customer case");
-        $_SESSION['loginReturnUrl'] = $strPageName;
-        header("Location: $urlRedirectToLogin");
-        break;
-}
-
+    switch ($case){
+        case 'public':
+            //break statement without action - allows page to load
+            break;
+        case "agent":
+            if (!$_SESSION["userType"] || ($_SESSION["userType"] !='agent')){
+                //user is not logged in - redirect user to login page and set source
+                $_SESSION['loginReturnUrl'] = $strPageName;
+                header("Location: http://localhost/GitHub/FabFive/login.php");
+            }
+            break;
+        case 'customer':
+            if (!$_SESSION["userType"] || ($_SESSION["userType"] !='customer')){
+                //user is not logged in - redirect user to login page and set source
+                $_SESSION['loginReturnUrl'] = $strPageName;
+                header("Location: http://localhost/GitHub/FabFive/login.php");
+            }
+            break;
+    }
 }
 
 ?>
