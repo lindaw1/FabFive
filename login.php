@@ -6,7 +6,7 @@
 //
 //
 // Requirements:  
-//        - this code assumes a login form with
+//             - this code assumes a login form with
 //             - form named "login"
 //             - email input field name="Email", 
 //             - agent emails all have "@travelexperts.com" suffix
@@ -16,16 +16,7 @@
 //************************************************************************* */
 ?> 
 
-<!-----------------------------RUN TIME TEST CODE---------------------------->
-<?php 
-include_once("classes.php");
-include_once("functions.php");
-include_once("classes_temp.php");
-include_once("functions_temp.php");
-
-
-?>
-
+<?php include_once('php/top.php'); ?>
 
 <!--------------------------PAGE SPECIFIC PHP PROCESSING------------------------------->
 <?php
@@ -116,27 +107,60 @@ include_once("functions_temp.php");
                 }
             }
         }
-    }
-
-            
-            
+    }          
 ?>
 
 
-<!----------------------------------START FORM HTML------------------------------------->
+<!--------------------------HMTL PAGE------------------------------->
 
-<form method="post" action="#" class="reg-form" name="infoForm" id="infoForm">
-    <!-- // Username --> 
-    <p>
-        <label class="formItemDesc" for="email" id="emailLabel">Username:</label>
-        <input type="text" class="formInputCtrl" name="email" id="email">
-    </p>
-    <!--  Password --> 
-    <p>
-        <label class="formItemDesc" for="password" id="passwordLabel">Password:</label>
-        <input type="password" class="formInputCtrl" name="password" id="password">
-    </p>                
-    <!-- Submit button -->
-    <input type="submit" value="Submit" id="loginSubmit" name="loginSubmit">
-    <p class="formError" id="formError" display="none"></p>
-</form>
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Travel Experts</title>
+<?php include_once('php/head.php'); ?> 
+
+</head>
+
+
+<body>
+    <header>
+        <?php include_once('php/Header.php'); ?>
+    </header>
+
+    <nav>
+    <?php include_once("php/nav.php"); ?>
+    </nav>
+    <main>
+    <!----------------------------------START LOGIN FORM ------------------------------------->
+
+        <form method="post" action="#" class="reg-form" name="infoForm" id="infoForm">
+            <!-- // Username --> 
+            <p>
+                <label class="formItemDesc" for="email" id="emailLabel">Username:</label>
+                <input type="text" class="formInputCtrl" name="email" id="email">
+            </p>
+            <!--  Password --> 
+            <p>
+                <label class="formItemDesc" for="password" id="passwordLabel">Password:</label>
+                <input type="password" class="formInputCtrl" name="password" id="password">
+            </p>                
+            <!-- Submit button -->
+            <input type="submit" value="Submit" id="loginSubmit" name="loginSubmit">
+            <p class="formError" id="formError" display="none"></p>
+        </form>
+    </main>
+
+
+<?php include_once('php/footer.php');?>
+
+</body>
+<script src="script.js"></script>
+</html>
+
+
+
+
+
+
+
