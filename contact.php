@@ -19,7 +19,8 @@ $agtAgentsArray = myGetAgents();
 <head>
 <title>Agency List</title>
 <?php include_once('php/head.php'); ?> 
-
+<link rel="stylesheet" href="style/style.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
@@ -30,7 +31,7 @@ $agtAgentsArray = myGetAgents();
     
     <?php     include __DIR__.'/phpParts/pageParts/navBar.php'; ?>
 
-    <div class: agency>
+    <div class: agency style="color: white;">
         <h1>Reach Out.</h1>
 
         <?php
@@ -55,8 +56,9 @@ $agtAgentsArray = myGetAgents();
         ?>
     </div>
 
-<?php include_once('php/footer.php');?>
+<?php
+    // Add page footer
+include __DIR__.'/phpParts/pageParts/pageFooter.php';
 
-</body>
-<script src="script.js"></script>
-</html>
+    include_once __DIR__.'/phpParts/htmlSections/foot.php';
+?>

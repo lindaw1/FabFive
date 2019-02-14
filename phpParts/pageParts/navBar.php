@@ -11,7 +11,7 @@ echo<<<NAVBAR
     <nav id="navBar">
         
         <a href="#" class="navItem aboutLink">About</a>
-        <a href="#" class="navItem contactLink">Contact</a>
+        <a href="contact.php" class="navItem contactLink">Contact</a>
         <a href="deals.php" class="navItem dealsLink">Deals</a>
         <a href="index.php" > <div class="navItem  brandLogo"></div> </a>
         <button class="navItem signInButton">Sign In</button>
