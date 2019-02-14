@@ -24,9 +24,7 @@ $agtAgentsArray = myGetAgents();
 </head>
 
 <body>
-    <header>
-        <?php include_once('php/Header.php'); ?>
-    </header>
+
 
     
     <?php     include __DIR__.'/phpParts/pageParts/navBar.php'; ?>
