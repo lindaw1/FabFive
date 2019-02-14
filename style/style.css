@@ -377,8 +377,8 @@ main{
     font-size: 230%;
 }
 .oldCost{
-    left: 25%;
-    top: 6%;
+    left: 38%;
+    top: 13%;
     color: rgb(151, 151, 151);
 }
 .saleCost{
@@ -412,14 +412,13 @@ main{
     text-shadow: 4px 4px 5px #000000;
 }
 .salePackageTitle{
-    
     font-weight: 600;
-    font-size: 230%;
+    font-size: 300%;
     top: 3%;
 }
 .subDescription{
     font-weight: 300;
-    font-size: 80%;
+    font-size: 130%;
     top: 20%;
     left: 11%;
 }
@@ -432,10 +431,10 @@ main{
     font-family:"Segoe UI",Frutiger;
     text-decoration: none;
     font-weight: 300;
-    font-size: 85%;
+    font-size: 165%;
     color: #37C197;
     top: 32%;
-    left: 33%;
+    left: 37%;
 }
 .reviews:hover{
     color: rgb(0, 255, 179);
@@ -444,7 +443,7 @@ main{
     top: 46%;
     left: 11%;
     width: 64%;
-    font-size: 90%;
+    font-size: 150%;
 }
 .startDate,.endDate{
     padding: 1%;
@@ -452,15 +451,29 @@ main{
 }
 .starsContainer{
     position: absolute;
-    width: 20%;
+    width: 27%;
     top: 32%;
     left: 13%;
 }
 .packageDescription{
     font-weight: 300;
-    width: 80%;
+    width: 90%;
+    height: 35%;
     top: 61%;
-    font-size: 80%;
+    font-size: 150%;
+    background-color: transparent;
+    overflow-y: auto;
+    overflow-x: none;
+    padding: 0 5%;
+    left: 4%;
+}
+.packageDescription::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+} 
+.packageDescription::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 25px;
 }
 .addToCart{
     position: absolute;

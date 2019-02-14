@@ -10,6 +10,22 @@
 //*********************************************************************** */
 
 
+// ***************************************************************************
+// ericFeatures
+function getCopiedAllDiscounts(){
+    include __DIR__.'/../classes/dbh/dbh.inc.php';
+    include __DIR__.'/../classes/discountPkgs/discountsPkg.inc.php';
+    include __DIR__.'/../classes/discountPkgs/viewDiscounts.inc.php';
+
+}
+
+function getCopiedAllPackages(){
+
+}
+
+// ***************************************************************************
+
+
 
 
 // ******************************************************************************

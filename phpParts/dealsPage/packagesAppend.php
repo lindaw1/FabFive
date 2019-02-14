@@ -4,6 +4,7 @@ include __DIR__.'/../classes/dbh/dbh.inc.php';
 include __DIR__.'/../classes/packages/package.inc.php';
 include __DIR__.'/../classes/packages/viewPackage.inc.php';
 
+function packagesAppend(){
 $dateNum2Word = array(
     '01'=>'Jan',
     '02'=>'Feb',
@@ -20,7 +21,7 @@ $dateNum2Word = array(
 );
 
 $vacationPackages = new ViewPackages();
-$packagesCopiedArray = $vacationPackages->showAllPackages();
+$packagesCoppiedArray = $vacationPackages->showAllPackages();
 // Instantly destoy our class instance to prevent database leakages
 unset($vacationPackages);
 
@@ -29,9 +30,9 @@ date_default_timezone_set("America/Edmonton");
 $todayDate = strtotime(date("Y-m-d"));
 
 // Add sales header Title
-echo '<h1 class="dealsTitle">'.count($packagesCopiedArray).' Packages Found: </h1>';
+echo '<h1 class="dealsTitle">'.count($packagesCoppiedArray).' Packages Found: </h1>';
 echo '<div class="packagesDisplayWrapper">';
-foreach($packagesCopiedArray as $item){
+foreach($packagesCoppiedArray as $item){
     $datePkgStart = strtotime($item['PkgStartDate']);
     $datePkgEnd = strtotime($item['PkgEndDate']);
     if ($todayDate>=$datePkgStart && $todayDate<$datePkgEnd){
@@ -69,5 +70,8 @@ foreach($packagesCopiedArray as $item){
     }
 }
 echo '</div>';
-echo ' <script> function letValue(event){ console.log(event.target.value);  }</script>';
+$packagesCoppiedArray = array();
+}
+packagesAppend();
+
 ?>
