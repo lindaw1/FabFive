@@ -242,7 +242,8 @@ video.homeHeaderVideo{
 	opacity: 0.2;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
-	transition: all 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
 
 }
 .slidebtn i:hover,.slider-dots:hover{
@@ -270,7 +271,7 @@ video.homeHeaderVideo{
   left:50%;
   bottom:3%;
   transform: translate(-50%, 0);
-  z-index:99;
+  z-index:3;
   -webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
@@ -502,7 +503,7 @@ main.dealsContent{
     padding-top: 1vh;
     padding-bottom: 0;
     height: 150vh;
-    background-color: rgb(105, 105, 105);
+    background-color: rgb(214, 214, 214);
     position: relative;
 }
 
@@ -533,7 +534,7 @@ h1.dealsTitle{
     overflow: auto;
 }
 
-div.packageItem{
+form.packageItem{
     margin: 2% 1% 2% 1%;
     display: inline-flex;
     font-family: 'Segoe UI';
@@ -671,7 +672,7 @@ a.allReview:hover{
     text-shadow: 0px 0px 6px black;
     font-size: 75%;
 }
-button.add2CartBttn{
+input.add2CartBttn{
     position: absolute;
     border-radius: 18px;
     padding: 1% 5%;
@@ -685,7 +686,7 @@ button.add2CartBttn{
     top: 66%;
     cursor: pointer;
 }
-button.add2CartBttn:hover{
+input.add2CartBttn:hover{
     color: white;
     border: 1px groove rgb(56, 148, 155);
     background: linear-gradient(to bottom, rgba(51,252,255,1) 0%, rgba(15,183,189,1) 18%, rgba(41,152,158,1) 33%, rgba(31,131,133,1) 40%, rgba(27,119,122,1) 47%, rgba(26,120,125,1) 53%, rgba(32,125,128,1) 60%, rgba(16,158,163,1) 79%, rgba(56,199,201,1) 95%, rgba(56,199,201,1) 100%);

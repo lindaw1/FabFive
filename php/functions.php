@@ -10,22 +10,6 @@
 //*********************************************************************** */
 
 
-// ***************************************************************************
-// ericFeatures
-function getCopiedAllDiscounts(){
-    include __DIR__.'/../classes/dbh/dbh.inc.php';
-    include __DIR__.'/../classes/discountPkgs/discountsPkg.inc.php';
-    include __DIR__.'/../classes/discountPkgs/viewDiscounts.inc.php';
-
-}
-
-function getCopiedAllPackages(){
-
-}
-
-// ***************************************************************************
-
-
 
 
 // ******************************************************************************
@@ -85,7 +69,64 @@ function getCopiedAllPackages(){
         return $assocArray;
     }
 // ******************************************************************************
+// Joins the Agent and Agency tables from the database travelagents and 
+// creates a new array/table $agtAgencyTableArray.
+function JoinTables() {
 
+    $dbh = ConnectDB();
+//    $sql = "SELECT  agents.AgencyId, agents.AgtFirstName, agents.AgtLastName, agents.AgtBusPhone, 
+//                agents.AgtEmail, agents.AgtPosition"; 
+                
+                $sql = "SELECT AgencyId, AgtFirstName, AgtLastName, AgtBusPhone, AgtEmail, AgtPosition FROM agents ORDER BY AgencyId, AgtLastName, AgtFirstName"; 
+                
+                $sql = "SELECT AgencyId, AgncyAddress, AgncyPhone, AgncyCity, AgncyProv, AgncyPostal, AgncyCountry, AgncyFax FROM agencies";
+                
+                // -- agencies.AgncyAddress, agencies.AgncyPhone, agencies.AgncyCity, 
+                // -- agencies.AgncyProv, agencies.AgncyPostal, agencies.AgncyCountry, agencies.AgncyFax 
+                // -- FROM agents INNER JOIN agencies 
+                // -- ON  = agencies.AgencyId";
+
+    if (!$result = $dbh->query($sql)) {
+        echo "ERROR: the SQL failed to execute. <br>";
+        echo "SQL: $sql <br>";
+        echo "Error #: ". $dbh->errno . "<br>";
+        echo "Error msg: " . $dbh->error . " <br>";
+    } else {
+        $agtAgencyTableArray = array();
+        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $agtAgencyTableArray[] = $row;
+        }
+    }
+
+    for ($i=0; $i < sizeof($agtAgencyTableArray); $i++) { 
+        $row = $agtAgencyTableArray[$i];
+        // print_r($row);
+        // echo "<hr>";
+    }
+    // print_r($agtAgencyTableArray);
+    return $agtAgencyTableArray;
+
+}
+// ******************************************************************************
+
+function myGetAgencies() {
+    $dbh = ConnectDB();
+    $sql = "SELECT AgencyId, AgncyAddress, AgncyPhone, AgncyCity, AgncyProv, AgncyPostal, AgncyCountry, AgncyFax FROM agencies";
+    if (!$result = $dbh->query($sql)) {
+        echo "Error #". $dbh->errno . ": " . $dbh->error . " <br>";
+    } else {
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+}
+function myGetAgents() {
+    $dbh = ConnectDB();
+    $sql = "SELECT AgencyId, AgtFirstName, AgtLastName, AgtBusPhone, AgtEmail, AgtPosition FROM agents ORDER BY AgencyId, AgtLastName, AgtFirstName"; 
+    if (!$result = $dbh->query($sql)) {
+        echo "Error #". $dbh->errno . ": " . $dbh->error . " <br>";
+    } else {
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+}
 
 function GetAgencies() {
     include_once("classes.php");
@@ -104,9 +145,9 @@ function GetAgencies() {
     if ($result === 0) {
         echo "There were no results<br>";
     }
-
     $agencies = array();
     while ($agen = $result->fetch_assoc()){
+        //instantiates the Agengcies
         $agency = new Agency(
             $agen["AgencyId"],
             $agen["AgncyAddress"],
@@ -114,8 +155,8 @@ function GetAgencies() {
             $agen["AgncyProv"],
             $agen["AgncyPostal"],
             $agen["AgncyCountry"],           
-            $agen["AgncyFax"],
-            $agen["AgncyPhone"]);
+            $agen["AgncyPhone"],
+            $agen["AgncyFax"]);
 
 
         $agencies[] = $agency;
@@ -140,9 +181,9 @@ function getPackages() {
     $packages = array();
     // looping through result for each package($pkg)
     while ($pkg = $result->fetch_assoc()){
-
-        // Constructing a singe $pkg object        
-        $package = new Packages(
+        // Constructing a singe $pkg object
+        print_r($pkg);
+        $package = new Package(
             $pkg["PackageId"],
             $pkg["PkgName"],
             $pkg["PkgStartDate"],
@@ -150,8 +191,7 @@ function getPackages() {
             $pkg["PkgDesc"],
             $pkg["PkgBasePrice"],
             $pkg["PkgAgencyCommission"]           
-        );
-
+            );        
         // adding the pakcage object to array of packages
         $packages[] = $package;
     } // end of While 

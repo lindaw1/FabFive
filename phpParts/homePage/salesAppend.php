@@ -1,11 +1,7 @@
 <?php
+include __DIR__.'/../packagesFunctions/functions.php';
 
-include __DIR__.'/../classes/dbh/dbh.inc.php';
-include __DIR__.'/../classes/discountPkgs/discountsPkg.inc.php';
-include __DIR__.'/../classes/discountPkgs/viewDiscounts.inc.php';
-include __DIR__.'/../classes/packages/package.inc.php';
-include __DIR__.'/../classes/packages/viewPackage.inc.php';
-
+function obtainSalesPkg(){
 
 $dateNum2Word = array(
     '01'=>'Jan',
@@ -22,15 +18,9 @@ $dateNum2Word = array(
     '12'=>'Dec',
 );
 
-$salePackages = new ViewDiscounts();
-$discountsCoppiedArray = $salePackages->showAllDiscounts();
-// Instantly destoy our class instance to prevent database leakages
-unset($salePackages);
+$discountsCoppiedArray = retrieveDiscounts();
 
-$vacationPackages = new ViewPackages();
-$packagesCoppiedArray = $vacationPackages->showAllPackages();
-// Instantly destoy our class instance to prevent database leakages
-unset($vacationPackages);
+$packagesCoppiedArray = retrievePackages();
 
 /** PROPERTIES WITHIN discountsCoppiedArray
  * idDiscount
@@ -90,5 +80,7 @@ foreach($discountsCoppiedArray as $sale){
         }
     }
 }
-
+$discountsCoppiedArray = $packagesCoppiedArray = array();
+}
+obtainSalesPkg()
 ?>
