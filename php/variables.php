@@ -29,6 +29,8 @@ function getPagePermissions() {
     "customerAppend.php"=>"customer",
     "customerList.php"=>"agent",
     "index.php"=>"public",
+    "indexNew.php"=>"public",
+    "deals.php"=>"public",
     "login.php"=>"public",
     "productAppend.php"=>"agent",
     "productList.php"=>"public",

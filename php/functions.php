@@ -9,7 +9,7 @@
 // 
 //*********************************************************************** */
 
-
+print("<br>functions.php<br>");
 
 
 // ******************************************************************************
@@ -127,21 +127,23 @@ function GetAgencies() {
 // ******************************************************************************
 
 
-function getPackages() {
-
+function GetPackages() {
+    print("<br>Start GetPackages<br>");
     //open database connection
-    $dbh= ConnectDB();
+    $dbh= ConnectDB_Object();
    
     $sql = "SELECT * FROM packages";
 
-    $result = mysqli_query($dbh, $sql);
+    $result = $dbh->query($sql);
+    print_r($result);
 
     // initializing array for all packages
-    $packages = array();
+    // $packages = array();
     // looping through result for each package($pkg)
     while ($pkg = $result->fetch_assoc()){
-        // Constructing a singe $pkg object
-
+    //     // Constructing a singe $pkg object
+            // print_r($pkg);
+            // print("<br>");
         $package = new Package(
             $pkg["PackageId"],
             $pkg["PkgName"],
@@ -150,7 +152,9 @@ function getPackages() {
             $pkg["PkgDesc"],
             $pkg["PkgBasePrice"],
             $pkg["PkgAgencyCommission"]           
-            );        
+            );  
+            
+        print($package->getPkgName() . "<br>");
         // adding the pakcage object to array of packages
         $packages[] = $package;
     } // end of While 
@@ -165,7 +169,7 @@ function getPackages() {
 *                                                                  *
 ***************************************************************/ -->
 
-<?php function GetPackages_temp($filterStartDate) {
+<?php function GetPackagesDateFilter($filterStartDate) {
 
     //open database connection
     $dbh = ConnectDB();
@@ -504,8 +508,4 @@ function getPackages() {
 		}
 	return $typestring;
 	}
-?>
-
-
-
-    
+?>    
