@@ -9,8 +9,6 @@
 // 
 //*********************************************************************** */
 
-print("<br>functions.php<br>");
-
 
 // ******************************************************************************
 
@@ -34,9 +32,7 @@ function ConnectDB_Object(){
     if ($link->connect_errno) {
         printf("Connect failed: %s\n", $link->connect_error);
         exit();
-    } else {
-        print("connected");
-    }
+    } 
     return $link;
 }
 
@@ -128,22 +124,18 @@ function GetAgencies() {
 
 
 function GetPackages() {
-    print("<br>Start GetPackages<br>");
     //open database connection
     $dbh= ConnectDB_Object();
    
     $sql = "SELECT * FROM packages";
 
     $result = $dbh->query($sql);
-    print_r($result);
 
     // initializing array for all packages
-    // $packages = array();
+    $packages = array();
     // looping through result for each package($pkg)
     while ($pkg = $result->fetch_assoc()){
     //     // Constructing a singe $pkg object
-            // print_r($pkg);
-            // print("<br>");
         $package = new Package(
             $pkg["PackageId"],
             $pkg["PkgName"],
@@ -153,8 +145,6 @@ function GetPackages() {
             $pkg["PkgBasePrice"],
             $pkg["PkgAgencyCommission"]           
             );  
-            
-        print($package->getPkgName() . "<br>");
         // adding the pakcage object to array of packages
         $packages[] = $package;
     } // end of While 
@@ -172,7 +162,7 @@ function GetPackages() {
 <?php function GetPackagesDateFilter($filterStartDate) {
 
     //open database connection
-    $dbh = ConnectDB();
+    $dbh= ConnectDB_Object();
 
     //If $filterStartDate not specified, then use today's date as default sql filter
     if ($filterStartDate=""){
@@ -187,7 +177,7 @@ function GetPackages() {
 
     $sql = "SELECT * FROM packages WHERE PkgStartDate >= '" . $dt ."'";
 
-    if (!$result = mysqli_query($dbh, $sql)){
+    if (!$result = $dbh->query($sql)){
         print("There was an error retreiving the recors from the database.");
         $packages = "";
     } else {
@@ -318,8 +308,10 @@ function GetPackages() {
 //and the $SESSION properties to check the permissions of the user and determine if
 //the page should be displayed, or if the user should be redirected to login
 
-
-
+    if (!isset($_SESSION["userType"])){
+        $_SESSION["userType"] = "";
+    }
+    
     $url = $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'];
     $path_parts = pathinfo($url);
     // echo $path_parts['basename'];
@@ -332,26 +324,27 @@ function GetPackages() {
     } else {
         $case = $arrayPermissions[$strPageName];
     }
-
+    $strRedirectTemp = "";
     switch ($case){
         case 'public':
             //break statement without action - allows page to load
             break;
         case "agent":
-            if (!$_SESSION["userType"] || ($_SESSION["userType"] !='agent')){
+            if ($_SESSION["userType"] !='agent'){
                 //user is not logged in - redirect user to login page and set source
                 $_SESSION['loginReturnUrl'] = $strPageName;
-                header("Location: http://localhost/GitHub/FabFive/login.php");
-            }
+                $strRedirectTemp = "http://localhost/GitHub/FabFive/login.php";
+            } 
             break;
         case 'customer':
-            if (!$_SESSION["userType"] || ($_SESSION["userType"] !='customer')){
+            if ($_SESSION["userType"] !='customer'){
                 //user is not logged in - redirect user to login page and set source
                 $_SESSION['loginReturnUrl'] = $strPageName;
-                header("Location: http://localhost/GitHub/FabFive/login.php");
+                $strRedirectTemp = "http://localhost/GitHub/FabFive/login.php";  
             }
             break;
     }
+    return $strRedirectTemp;
 }
 
 ?>

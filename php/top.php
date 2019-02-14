@@ -23,6 +23,8 @@ include_once('php/variables.php');
 $urlCurrent = $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'];
 $path_parts = pathinfo($urlCurrent);
 $strPage = $path_parts['basename'];
-checkCredentials($strPage);
-
+$strRedirect = checkCredentials($strPage);
+if ($strRedirect!= "") {
+    header($strRedirect);
+}
 ?>
