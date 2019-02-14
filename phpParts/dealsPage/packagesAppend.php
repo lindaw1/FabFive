@@ -26,7 +26,8 @@ function packagesAppend(){
     $todayDate = strtotime(date("Y-m-d"));
 
     // Add sales header Title
-    echo '<h1 class="dealsTitle">'.count($packagesCoppiedArray).' Packages Found: </h1>';
+    $numberPkgs = count($packagesCoppiedArray);
+    echo '<h1 class="dealsTitle">'.$numberPkgs.' Packages Found: </h1>';
     echo '<div class="packagesDisplayWrapper">';
     foreach($packagesCoppiedArray as $item){
         $datePkgStart = strtotime($item['PkgStartDate']);
@@ -61,7 +62,7 @@ function packagesAppend(){
             echo '    <p class=" pkgSubDesc" >'.$item['PkgSubDesc'].'</p>';
                 
             echo '    <p class=" pkgDesc" >'.$item['PkgDesc'].'</p>';
-            echo '    <input type="submit" class="add2CartBttn" value="Add To Cart" name="addToCart"/>';
+            echo '    <a href="order.php"> <div class="add2CartBttn">Add To Cart</div></a>';//<input type="submit" class="add2CartBttn" value="Add To Cart" name="addToCart"/> 
             echo '</form>';
         }
     }

@@ -24,32 +24,44 @@ $agtAgentsArray = myGetAgents();
 </head>
 
 <body>
-
-
     
     <?php     include __DIR__.'/phpParts/pageParts/navBar.php'; ?>
 
-    <div class: agency style="color: white;">
-        <h1>Reach Out.</h1>
+    <div class="mainContact" style="color: white;">
 
+        <h1 class="contactTitle">Reach Out.</h1>
+
+        <!-- <div class="agencyPic" style='background-image: url("img/contact/agencies/calgary.jpg");'>
+            <div class="whiteBox"></div>
+            <div class="calgaryPic"></div>
+        </div> -->
         <?php
 
 
-        echo "<ul>";
         foreach ($agtAgenciesArray as $agency) {
-            echo "<h1>".$agency['AgncyCity']."</h1>".$agency['AgncyAddress']."<br>" .$agency['AgncyPhone'] ;
-           
+            
+            echo '<div class="AgencyContent">';
+            echo '<div class="positionPic" \'>
+                <div class="whiteBox"></div>
+                <div class="agencyPic" style="background-image: url(\'img/contact/agencies/'.$agency['AgncyCity'].'.jpg\');"></div>
+                <h1 class=\'cityTitle\'>'.$agency['AgncyCity'].'</h1>
+                </div>';
 
-            echo "<table>";
+            echo "<div class='address' >".$agency['AgncyAddress']."<br>" .$agency['AgncyPhone']."</div>" ;
+           
+            echo"<h1 class=\"ourAgents\"> Our Agents: </h1>";
+
+            echo "<table class=\"agentsTable\">";
             foreach ($agtAgentsArray as $agent) {
                 if ($agency['AgencyId'] === $agent['AgencyId']) {
-                echo "<tr><td>" . $agent['AgtFirstName'] . " " . $agent['AgtLastName'] . "</td><td>" 
+                echo "<tr class=\"rowAgent\"><td>" . $agent['AgtFirstName'] . " " . $agent['AgtLastName'] . "</td><td>" 
                 . $agent['AgtBusPhone'] . "</td><td>" . $agent['AgtEmail']."</td></tr>";
                 }
              }
             echo "</table>";
+            echo'</h1>';
+            echo'</div>';
         }
-        echo "</ul>";
 
         ?>
     </div>

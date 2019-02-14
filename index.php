@@ -16,7 +16,7 @@
 echo '<main class="homeContent">';
 
 // Add sales header Title
-echo '<h1 class="homeHotDeals">Our Monlthy Limited Sales:</h1>';
+echo '<h1 class="homeHotDeals">Our Monthly Limited Sales:</h1>';
 
 
 //**Extract Data For Sales************************************ */ 

@@ -368,23 +368,22 @@ main{
 .cost{
     font-family:"Segoe UI",Frutiger;
     color: white;
-    font-size: 90%;
     position: absolute;
 }
 .oldPrice{
-    font-size: 170%;
+    font-size: 3.7vh;
 }
 .newPrice{
-    font-size: 230%;
+    font-size: 4.6vh;
 }
 .oldCost{
     left: 38%;
-    top: 13%;
+    top: 23%;
     color: rgb(151, 151, 151);
 }
 .saleCost{
     left: 15%;;
-    top: 29%;
+    top: 39%;
     color: rgb(49, 252, 49);
 }
 .perPerson{
@@ -414,12 +413,12 @@ main{
 }
 .salePackageTitle{
     font-weight: 600;
-    font-size: 300%;
+    font-size: 9vh;
     top: 3%;
 }
 .subDescription{
     font-weight: 300;
-    font-size: 130%;
+    font-size: 4.5vh;
     top: 20%;
     left: 11%;
 }
@@ -432,10 +431,10 @@ main{
     font-family:"Segoe UI",Frutiger;
     text-decoration: none;
     font-weight: 300;
-    font-size: 165%;
+    font-size: 2.5vh;
     color: #37C197;
-    top: 32%;
-    left: 37%;
+    top: 34%;
+    left: 30%;
 }
 .reviews:hover{
     color: rgb(0, 255, 179);
@@ -444,7 +443,7 @@ main{
     top: 46%;
     left: 11%;
     width: 64%;
-    font-size: 150%;
+    font-size: 3.2vh;
 }
 .startDate,.endDate{
     padding: 1%;
@@ -452,7 +451,7 @@ main{
 }
 .starsContainer{
     position: absolute;
-    width: 27%;
+    width: 51vh;
     top: 32%;
     left: 13%;
 }
@@ -461,7 +460,7 @@ main{
     width: 90%;
     height: 35%;
     top: 61%;
-    font-size: 150%;
+    font-size: 3.5vh;
     background-color: transparent;
     overflow-y: auto;
     overflow-x: none;
@@ -503,8 +502,9 @@ main.dealsContent{
     padding-top: 1vh;
     padding-bottom: 0;
     height: 150vh;
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(31, 21, 21);
     position: relative;
+    color: white;
 }
 
 header.dealsHeader{
@@ -574,7 +574,7 @@ div.packageTag{
     clip-path: polygon(0 0, 100% 0, 100% 66%, 50% 100%, 1% 66%);
 }
 p.costTag, .tagPer{
-    font-size: 90%;
+    font-size: 2.5vh;
     font-weight: 300;
     color: white;
     position: absolute;
@@ -600,18 +600,19 @@ h1.pkgTitle{
     top: 50%;
     width: 100%;
     text-align: center;
-    font-size: 160%;
+    font-size: 3.6vh;
 }
 .pkgSubDesc{
-    font-size: 75%;
+    font-size: 2.5vh;
     font-weight: 200;
     position: absolute;
     width: 100%;
     text-align: center;
     top: 56%;
+    color: black;
 }
 .pkgDesc{
-    font-size: 85%;
+    font-size: 2.7vh;
     font-weight: 400;
     position: absolute;
     left: 3%;
@@ -623,6 +624,7 @@ h1.pkgTitle{
     top: 75%;
     text-align: left;
     padding: 5%;
+    color: black;
 
 }
 .pkgDesc::-webkit-scrollbar {
@@ -638,7 +640,7 @@ h1.pkgTitle{
     color: white;
     width: 70%;
     background-color: rgba(0, 0, 0, 0.815);
-    font-size: 100%;
+    font-size: 2.5vh;
     left: 3%;
     top: 88%;
     padding-left: 5%;
@@ -653,7 +655,7 @@ h1.pkgTitle{
     padding-left: 5px;
     left: 9%;
     top: 5%;
-    width: 130px;
+    width: 26.4vh;
 }
 .pkgStar{    
     display: inline-block;
@@ -663,20 +665,19 @@ a.allReview{
     position: absolute;
     color: red;
     text-decoration:none;
-    font-size: 67%;
-    left: 10%;
-    top: 12%;
+    font-size: 2vh;
+    left: 15%;
+    top: 15%;
 }
 a.allReview:hover{
     color: white;
     text-shadow: 0px 0px 6px black;
-    font-size: 75%;
 }
-input.add2CartBttn{
+div.add2CartBttn{
     position: absolute;
     border-radius: 18px;
     padding: 1% 5%;
-    font-size: 130%;
+    font-size: 3vh;
     background-color: rgba(56,199,201,1);
     color: black;
     border: none;
@@ -686,8 +687,122 @@ input.add2CartBttn{
     top: 66%;
     cursor: pointer;
 }
-input.add2CartBttn:hover{
+div.add2CartBttn:hover{
     color: white;
     border: 1px groove rgb(56, 148, 155);
     background: linear-gradient(to bottom, rgba(51,252,255,1) 0%, rgba(15,183,189,1) 18%, rgba(41,152,158,1) 33%, rgba(31,131,133,1) 40%, rgba(27,119,122,1) 47%, rgba(26,120,125,1) 53%, rgba(32,125,128,1) 60%, rgba(16,158,163,1) 79%, rgba(56,199,201,1) 95%, rgba(56,199,201,1) 100%);
 }
+
+
+/* ***************************************************************************************************** */
+/* STYLING CONTACT PAGE */
+div.mainContact{
+    width: 100%;
+    height: auto;
+    padding-top: 14vh;
+    background-color: rgb(31, 21, 21);
+}
+h1.contactTitle{
+    font-family: 'Segoe UI';
+    font-size: 10vh;
+    font-weight: 700;
+    left: 5%;
+    top: 2%;
+    margin: 4vh 0 0 10vw;  
+}
+div.positionPic{
+    width: 35vw;
+    position: relative;
+    width: 30vw;
+    height: 30vh;
+    float: right;
+    margin-right: 5vw;
+}
+
+div.agencyPic{
+    background-size: cover;
+    background-position: center;
+    width: 30vw;
+    height: 30vh;
+    border-radius: 15px;
+    position: absolute;
+}
+div.whiteBox{
+    background-color: white;
+    width:30vh;
+    height: 30vh;
+    border-radius: 10% 0 10% 50%;
+    position: absolute;
+    top: -10%;
+    left: 58%;
+}
+h1.cityTitle{
+    position: absolute;
+    font-size: 9vh;
+    transform: translate(-50%,-50%);
+    top: 90%;
+    left: 50%;
+    text-shadow: 1px 6px 14px #000000;
+}
+div.AgencyContent{
+    width: 100%;
+    height: 50vh;
+    margin: 15vh 0 5vh 0;
+    position: relative;
+}
+div.address{
+    position: absolute;
+    font-weight: 700;
+    font-size: 5vh;
+    top: 70%;
+    left: 68%;
+}
+h1.ourAgents{
+    position: relative;
+    font-size: 8vh;
+    margin-left: 5vw;
+    text-shadow: 1px 6px 14px #c5c1c1; 
+}
+table.agentsTable{
+    font-size: 4vh;
+    position: absolute;
+    left: 8%;
+    top: 25%;
+}
+tr.rowAgent{
+    padding: 20px 0;
+}
+/* ***************************************************************************************************** */
+/* ************************************************************************************************************************ */
+/* Order Page Styling */
+main.orderContent{
+    padding-top: 14vh;
+    width: 100%;
+    height: 150vh;
+    background-color: white;
+}
+div.wrapper{
+    position: absolute;
+    margin-left: 15px;
+    padding: 20px;
+    border: 5px solid black;
+}
+
+.label{
+    float: left;
+}
+
+.input-box{
+    position: relative;
+    float: right;
+    margin-right: 50px;
+}
+
+.descToCntrl{
+    padding: 15px;
+    margin-left: 20px;
+}
+img.orderButton{
+    cursor: pointer;
+}
+/* *********************************************************************************************************************************** */
