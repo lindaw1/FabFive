@@ -19,7 +19,7 @@ html {
 }
 
 
-/* FOR TESTING */
+/* IMPORTANT */
 body{
     background-color: black;
 }
@@ -32,6 +32,7 @@ body::-webkit-scrollbar {
     width: 13px;
     background-color: #F5F5F5;
 } 
+/* For index deals display */
 .content{
     width: 100%;
     height: 88vh;
@@ -42,7 +43,7 @@ body::-webkit-scrollbar {
 .content:nth-child(2n){
     background-color: green;
 }
-/* FOR TESTING */
+/* IMPORTANT */
 
 
 
@@ -970,6 +971,7 @@ tr.rowAgent{
     padding: 20px 0;
 }
 /* ***************************************************************************************************** */
+
 /* ************************************************************************************************************************ */
 /* Order Page Styling */
 main.orderContent{
