@@ -1,7 +1,7 @@
 <?php
 class Discounts extends ourDBH {
 
-    protected function getAllDiscounts(){
+    protected function getRemainDis(){
 
         $sqlForDis = "SELECT * FROM discountpackages";
 

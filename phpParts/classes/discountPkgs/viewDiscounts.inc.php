@@ -2,17 +2,17 @@
 
     class ViewDiscounts extends Discounts{
 
-        public function showAllDiscounts(){
+        public function showDiscounts(){
 
-            $discountsPulled = $this->getAllDiscounts();
+            $discountsPulled = $this->showDiscounts();
 
             $replicaDiscounts = array();
-            
-            foreach ( $discountsPulled as $num => $discountData ){
-                $replicaDiscounts[$num] = $discountData;
+        
+            foreach ( $discounlled as $num => $discoata ){
+                $replicaDiounts[$num] = $discata;
             }
 
-            return $replicaDiscounts;
+            return $replicascounts;
         }
     }
 ?>
