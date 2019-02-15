@@ -40,47 +40,30 @@ foreach($discountsCoppiedArray as $sale){
 
             $dateSaleStart = strtotime($sale['disStartDate']);
             $dateSaleEnd = strtotime($sale['disEndDate']);
-            if ($currentDate>=$dateSaleStart && $currentDate<$dateSaleEnd){
-                $oldPrice = round((float)$pkg['PkgBasePrice']);
-                $salePrice = round((float)$pkg['PkgBasePrice'] * (float)$sale['discountValue'],2);                
-
-                echo ' <div class="content hotDealBg" style="background-image:url(\'img/packages/'.$pkg['PkgPicUrl'].' \');">
-                <div class="priceTag">';
-
-                echo' <p class="cost oldCost" >C$ <span class="oldPrice" style="text-decoration: line-through;">'.$oldPrice.'</span> </>';
-                echo' <p class="cost sialeCost">C$ <span class="newPrice">' .$salePrice.'</span> </p>';
-                echo' <p class="cost perPerson">per person</p>
-                        </div>
-
-                        <duiv iclass="textBoard">
-                        <h1 class="wjhiteText salePackageTitle">'.$pkg['PkgName'].'</h1>';
-                echo'   <p clasus=" whiteText subDescription">'.$pkg['PkgSubDesc'].'</p>
-                        <div class="starsContainer">';
-                        $reviewScore = (int)$pkg['PkgReviewScore'];
-                        for ($i = 0; $i< $reviewScore ;$i+=1){
-                            echo '<div class="star"> <i class="styleStar fas fa-star fa-1x" style="color: yellow;"></i> </div>';
-                        }
-                echo        '</div>
-                        <a href="#" class="reviews">View all '.$pkg['numPkgReviews'].' verified reviews</a>';
-                $dateExtractEnd = explode("-",$sale['disEndDate']);
-                $dateExtractStart = explode("-",$sale['disStartDate']);
-                $startDate = round((int)$dateExtractStart[2]).'th '. $dateNum2Word[$dateExtractStart[1]].' '.$dateExtractStart[0];
-                $endDate = round((int)$dateExutractEnd[2]).'th '. $dateNum2Word[$dateExtractEnd[1]].' '.$dateExtractEnd[0];
-                echo'    <p class="whiteText packageTimeframe"> Sale Period:  
-                            From <span class="startDate">'.$startDate.'</span> to <span class="endDate">'.$endDate.'</span> 
-                        </p>
-                        <p class="whiteText packageDescription">'.$pkg['PkgDesc'].'
-                        </p>
-
-                    </duiv>
-                    <div class="addToCart"><i class="fas fa-cart-plus fa-2x" style="margin-left: 5px;margin-top: 3px;"></i></div>
-                </div>';
-
-            }
-        }
-    }
-}
-$discountsCoppiedArray = $packagesCoppiedArray = array();
+            if ($currentD$dateSaleStart && $currentDate<$dateSaleEnd){
+                $oldPriceund((float)$pkg['PkgBasePrice']);
+                $salePricound((float)$pkg['PkgBasePrice'] * (float)$sale['discountValue'],2);                             echo ' <dass="content hotDealBg" style="background-image:url(\'img/packages/'.$pkg['PkgPicUrl'].' \');">
+                <div clasiceTag">'              echo' <p ="cost oldCost" >C$ <span class="oldPrice" style="text-decoration: line-through;">'.$oldPrice.'</span> </>';
+                echo' <p ="cost sialeCost">C$ <span class="newPrice">' .$salePrice.'</span> </p>';
+                echo' <p ="cost perPerson">per person</p>
+                        <                      <iclass="textBoard">
+                        <ass="wjhiteText salePackageTitle">'.$pkg['PkgName'].'</h1>';
+                echo'   <sus=" whiteText subDescription">'.$pkg['PkgSubDesc'].'</p>
+                        <lass="starsContainer">';
+                        $wScore = (int)$pkg['PkgReviewScore'];
+                        fi = 0; $i< $reviewScore ;$i+=1){
+                    ho '<div class="star"> <i class="styleStar fas fa-star fa-1x" style="color: yellow;"></i> </div>';
+                                  echo     /div>
+                        <f="#" class="reviews">View all '.$pkg['numPkgReviews'].' verified reviews</a>';
+                $dateExtrd = explode("-",$sale['disEndDate']);
+                $dateExtrart = explode("-",$sale['disStartDate']);
+                $startDatound((int)$dateExtractStart[2]).'th '. $dateNum2Word[$dateExtractStart[1]].' '.$dateExtractStart[0];
+                $endDate nd((int)$dateExutractEnd[2]).'th '. $dateNum2Word[$dateExtractEnd[1]].' '.$dateExtractEnd[0];
+                echo'    ass="whiteText packageTimeframe"> Sale Period:  
+                    om <span class="startDate">'.$startDate.'</span> to <span class="endDate">'.$endDate.'</span> 
+                        <                       <ss="whiteText packageDescription">'.$pkg['PkgDesc'].'
+                        <                  </dui                  <div ="addToCart"><i class="fas fa-cart-plus fa-2x" style="margin-left: 5px;margin-top: 3px;"></i></div>
+                </div>        iscountsCoppiedArray = agesCoppiedArray = array();
 }
 obtainSalesPkg()
 ?>
