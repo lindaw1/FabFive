@@ -358,7 +358,7 @@ main{
     text-shadow: -2px 1px 2px rgba(255, 255, 255, 0.64);
 }
 .hotDealBg{
-    background-size: cover;
+    background-size: 105% 108%;
     background-position: center;
 }
 .priceTag{
@@ -420,6 +420,15 @@ main{
     font-weight: 600;
     font-size: 9vh;
     top: 3%;
+    cursor: pointer;
+}
+.salePackageTitle:hover{
+    color: white;
+    text-shadow: 4px 4px 10px rgb(240, 205, 8);
+}
+.salePackageTitle:nth-child(2n):hover{
+    color: white;
+    text-shadow: 4px 4px 10px rgb(5, 119, 172);
 }
 .subDescription{
     font-weight: 300;
@@ -980,7 +989,7 @@ main.orderContent{
 }
 div.wrapper{
     position: absolute;
-    margin-left: 15px;
+    left: 28%;
     padding: 20px;
     border: 5px solid black;
 }

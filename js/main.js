@@ -170,12 +170,23 @@ window.onscroll = function(){
         });
     }
 };
+// ***************************************************************************************
+// Mouse Move Function
 
+function moveBg(){
+    let $salepkgs = document.getElementsByClassName('hotDealBg');
+    for (let $it = 0; $it<$salepkgs.length;$it++){
+        $salepkgs[$it].id='hotDeal'+$it;
+        let $tempPkg = document.getElementById("hotDeal"+$it);
+        $tempPkg.addEventListener("mousemove",(event)=>{
+            $moveX = -event.clientX/152-1.5 ;
+            $moveY= -event.clientY/90;
+            $tempPkg.style.backgroundPosition = $moveX + 'px ' + $moveY + 'px';
+        });
+    }
+}
+moveBg();
 
-
-
-
-console.log(homeDisplay.offsetHeight);
 
 
     
