@@ -49,7 +49,7 @@ function packagesAppend(){
                 $reviewScore = (int)$item['PkgReviewScore'];
                 echo '<div class="pkgStarsContainer">';
                     for ($i = 0; $i< $reviewScore ;$i+=1){
-                        echo '<div class="pkgStar"> <i class="fas fa-star fa-1x" style="color: yellow;"></i> </div>';
+                        echo '<div class="pkgStar"> <i class=" styleStar fas fa-star fa-1x" ></i> </div>';
                     }
                 echo '</div>';
             

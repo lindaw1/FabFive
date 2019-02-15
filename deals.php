@@ -10,7 +10,12 @@ include __DIR__.'/phpParts/dealsPage/dealsHeader.php';
 
 // Add OPENING <main> tag for home page
 echo '<main class="dealsContent">';
-
+?>
+<div class="searchWrapper" action="#">
+        <input type="text" class="searchCom" id="searchBar" placeholder="Looking For An Adventure ?" name="search">
+        <div class="searchIcon"></div>
+</div>
+<?php
 //**Extract Packages ************************************ */ 
 
     include __DIR__.'/phpParts/dealsPage/packagesAppend.php';

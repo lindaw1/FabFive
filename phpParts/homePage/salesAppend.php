@@ -58,7 +58,7 @@ foreach($discountsCoppiedArray as $sale){
                         <div class="starsContainer">';
                         $reviewScore = (int)$pkg['PkgReviewScore'];
                         for ($i = 0; $i< $reviewScore ;$i+=1){
-                            echo '<div class="star"> <i class="fas fa-star fa-1x" style="color: yellow;"></i> </div>';
+                            echo '<div class="star"> <i class="styleStar fas fa-star fa-1x" style="color: yellow;"></i> </div>';
                         }
                 echo        '</div>
                         <a href="#" class="reviews">View all '.$pkg['numPkgReviews'].' verified reviews</a>';

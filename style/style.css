@@ -105,8 +105,13 @@ nav {
     height: 12vh;
     left: 47%;
     top: 6%;  /*Needs edit if bar height change*/
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
-.brandLogo:hover,.signInButton:hover,.shoppingCartLogoContainer:hover,#barBox:hover{ /*Mouse Over the logo will be cursor*/
+.brandLogo:hover{
+    background-image: url("../img/brandLogo/travelExpertLogoHover.png");
+}
+.signInButton:hover,.shoppingCartLogoContainer:hover,#barBox:hover{ /*Mouse Over the logo will be cursor*/
     cursor: pointer;
 }
 .signInButton{
@@ -349,7 +354,7 @@ main{
     color: white;
     position: absolute;
     left: 5%;
-    top: 5%;
+    top: 3%;
     text-shadow: -2px 1px 2px rgba(255, 255, 255, 0.64);
 }
 .hotDealBg{
@@ -425,6 +430,9 @@ main{
 .star{
     display: inline-block;
     margin-right: 1%;
+}
+.styleStar{
+    color: rgb(255, 224, 46);
 }
 .reviews{
     position: absolute;
@@ -678,7 +686,7 @@ div.add2CartBttn{
     border-radius: 18px;
     padding: 1% 5%;
     font-size: 3vh;
-    background-color: rgba(56,199,201,1);
+    background-color: #FDB931;
     color: black;
     border: none;
     font-weight: 300;
@@ -689,9 +697,198 @@ div.add2CartBttn{
 }
 div.add2CartBttn:hover{
     color: white;
-    border: 1px groove rgb(56, 148, 155);
-    background: linear-gradient(to bottom, rgba(51,252,255,1) 0%, rgba(15,183,189,1) 18%, rgba(41,152,158,1) 33%, rgba(31,131,133,1) 40%, rgba(27,119,122,1) 47%, rgba(26,120,125,1) 53%, rgba(32,125,128,1) 60%, rgba(16,158,163,1) 79%, rgba(56,199,201,1) 95%, rgba(56,199,201,1) 100%);
+    border: 1px groove goldenrod;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
 }
+/**************************************************/
+/* Header Deals Page styling */
+.filter{
+    width: auto;
+    height: 8vh;
+    margin: 1vh 5vh;
+    text-align: right;
+    display: inline-block;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+}
+.filterContainer{
+    position: absolute;
+    top: 15vh;
+    left: 5vw;    
+}
+.selectionTitle:hover{
+    color:red;
+    cursor: pointer;
+}
+.selection{
+    font-weight: 500;
+}
+button.moreFilter{
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+    font-family: 'Segoe UI';
+    position: absolute;
+    font-size: 5vh;
+    top: 17vh;
+    left: 80%;
+    color: white;
+    cursor: pointer;
+}
+button.moreFilter:hover{
+    color: rgb(37, 189, 209);
+}
+
+
+/* ************************* */
+/* Search Icon */
+.searchWrapper {
+    position: absolute;
+    top: 0;
+    left: 68vw;
+    width: 29vw;
+    height: 12vh;
+    z-index: 0;
+    transition: all 2s;
+}
+
+.searchIcon {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 9vh;
+    height: 9vh;
+    background: rgb(255, 246, 224);
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.6);
+}
+.searchIcon:hover {
+    cursor: grabbing;
+    background: rgb(255, 255, 255);
+    opacity: 1;
+
+}
+.searchIcon::before {
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: calc(0.22*12vh);
+    right: 0;
+    bottom: 0;
+    left: calc(0.22*12vh);
+    width: calc(0.12*12vh);
+    height: calc(0.02*12vh);
+    background: black;
+    transform: rotate(45deg);
+    transition: all .5s;
+}
+.searchIcon::after {
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: calc(-0.05*12vh);
+    right: 0;
+    bottom: 0;
+    left: calc(-0.05*12vh);
+    width: calc(0.25*12vh);
+    height: calc(0.25*12vh);
+    border-radius: 50%;
+    border: 2px solid black;
+    transition: all .5s;
+}
+input.searchCom {
+    font-family: monospace;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: calc(0.5*12vh);
+    height: calc(0.5*12vh);
+    outline: none;
+    border: none;
+    background: rgb(255, 246, 224);
+    color: black;
+    text-shadow: 0 0 10px black;
+    padding: 0 calc(0.8*12vh) 0 calc(0.2*12vh);
+    border-radius: 30px;
+    box-shadow: 0 0 25px 0 rgb(255, 246, 224), 0 40px 35px 0 rgba(0, 0, 0, 0.01);
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+}
+input.searchCom:hover {
+    cursor: grabbing;
+}
+input.searchCom:focus {
+    width: 100%;
+    opacity: 1;
+    cursor: text;
+}
+input.searchCom:focus ~ .searchIcon {
+    width: calc(0.5*12vh);
+    height: calc(0.5*12vh);
+    border-radius: 0px 50% 50% 0px;
+    right: calc(-270/300*29vw);
+    background: rgba(0,0,0,0.7);
+    z-index: 6;
+}
+input.searchCom:focus ~ .searchIcon:hover{
+    background-color: rgba(0,0,0,0.9);
+}
+
+input.searchCom:focus ~ .searchIcon:hover::before {
+    top: 0;
+    left: 0;
+    width: calc(0.32*12vh);
+    height: calc(0.05*12vh);
+    border-radius: 50px;
+}
+input.searchCom:focus ~ .searchIcon:hover::after {
+    top: 0;
+    left: 0;
+    width: calc(0.32*12vh);
+    height: calc(0.02*12vh);
+    border-radius: 50px;
+}
+        
+input.searchCom:focus ~ .searchIcon::before {
+    background: white;
+    top: 0;
+    left: 0;
+    width: calc(0.25*12vh);
+    border-radius: 50px;
+}
+input.searchCom:focus ~ .searchIcon::after {
+    top: 0;
+    left: 0;
+    width: calc(0.25*12vh);
+    height: calc(0.04*12vh);
+    border: none;
+    border-radius: 50px;
+    background: white;
+    transform: rotate(-45deg);
+}
+input.searchCom:focus ~ .searchIcon::placeholder {
+    color: black;
+    opacity: 0.5;
+    font-weight: 300;
+    font-size: 120%;
+}
+
+
+
+
+
 
 
 /* ***************************************************************************************************** */
@@ -806,3 +1003,4 @@ img.orderButton{
     cursor: pointer;
 }
 /* *********************************************************************************************************************************** */
+
