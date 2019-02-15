@@ -170,12 +170,36 @@ window.onscroll = function(){
         });
     }
 };
+// ****************************************************************************************
+// Mouse Move Jiggle images on index page
 
+function mouseOverMoveBg(){
+    function assignIdToDiv(classNameOfEl){
 
+        var elArray = document.getElementsByClassName(classNameOfEl);
 
+        for (var it = 0 ; it < elArray.length; it++){
+            elArray[it].id='hotDeal'+it;
+            let tempMove = document.getElementById("hotDeal"+it);
+            tempMove.addEventListener("mousemove",(event)=>{
+                var amountMovedX = (event.clientX * -1/152-1.5);
+                var amountMovedY = (event.clientY * -1 / 90);
+                tempMove.style.backgroundPosition= amountMovedX + 'px ' + amountMovedY + 'px';
+            });
+            console.log(elArray[it]);
+        }
+    }
+    assignIdToDiv('hotDealBg');
+    var defaultHeader = document.getElementById("defaultImage");
+    defaultHeader.addEventListener("mousemove",(event)=>{
+        console.log("on");
+        var bgMovedX = (event.clientX * -1/152-1.5);
+        var bgMovedY = (event.clientY * -1 / 90);
+        defaultHeader.style.backgroundPosition= bgMovedX + 'px ' + bgMovedY + 'px';
+    });
+}
+mouseOverMoveBg();
 
-
-console.log(homeDisplay.offsetHeight);
 
 
     

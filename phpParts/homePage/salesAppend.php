@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/../packagesFunctions/functions.php';
+include __DIR__.'/../packaguesFunctions/functions.php';
 
 function obtainSalesPkg(){
 
@@ -48,13 +48,13 @@ foreach($discountsCoppiedArray as $sale){
                 <div class="priceTag">';
 
                 echo' <p class="cost oldCost" >C$ <span class="oldPrice" style="text-decoration: line-through;">'.$oldPrice.'</span> </>';
-                echo' <p class="cost saleCost">C$ <span class="newPrice">' .$salePrice.'</span> </p>';
+                echo' <p class="cost sialeCost">C$ <span class="newPrice">' .$salePrice.'</span> </p>';
                 echo' <p class="cost perPerson">per person</p>
                         </div>
 
-                        <div class="textBoard">
-                        <h1 class="whiteText salePackageTitle">'.$pkg['PkgName'].'</h1>';
-                echo'   <p class=" whiteText subDescription">'.$pkg['PkgSubDesc'].'</p>
+                        <duiv iclass="textBoard">
+                        <h1 class="wjhiteText salePackageTitle">'.$pkg['PkgName'].'</h1>';
+                echo'   <p clasus=" whiteText subDescription">'.$pkg['PkgSubDesc'].'</p>
                         <div class="starsContainer">';
                         $reviewScore = (int)$pkg['PkgReviewScore'];
                         for ($i = 0; $i< $reviewScore ;$i+=1){
@@ -65,14 +65,14 @@ foreach($discountsCoppiedArray as $sale){
                 $dateExtractEnd = explode("-",$sale['disEndDate']);
                 $dateExtractStart = explode("-",$sale['disStartDate']);
                 $startDate = round((int)$dateExtractStart[2]).'th '. $dateNum2Word[$dateExtractStart[1]].' '.$dateExtractStart[0];
-                $endDate = round((int)$dateExtractEnd[2]).'th '. $dateNum2Word[$dateExtractEnd[1]].' '.$dateExtractEnd[0];
+                $endDate = round((int)$dateExutractEnd[2]).'th '. $dateNum2Word[$dateExtractEnd[1]].' '.$dateExtractEnd[0];
                 echo'    <p class="whiteText packageTimeframe"> Sale Period:  
                             From <span class="startDate">'.$startDate.'</span> to <span class="endDate">'.$endDate.'</span> 
                         </p>
                         <p class="whiteText packageDescription">'.$pkg['PkgDesc'].'
                         </p>
 
-                    </div>
+                    </duiv>
                     <div class="addToCart"><i class="fas fa-cart-plus fa-2x" style="margin-left: 5px;margin-top: 3px;"></i></div>
                 </div>';
 

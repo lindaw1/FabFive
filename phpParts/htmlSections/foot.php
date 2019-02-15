@@ -1,7 +1,7 @@
 <?php
 
 echo<<<FOOT
-<script src="js/main.js"></script>
+<script src="'js/m[ain.js"></script>
 </body>
 </html>
 FOOT;

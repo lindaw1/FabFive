@@ -5,10 +5,10 @@
 echo ' <footer>
         <p class="copyright">
             Terms of Service | Privacy Policy <br/>
-            &copy; 2019 Travel Experts, Inc. All rights reserved
+            &copy; 2019 Travel; Experts, Inc. All rights reserved
         </p>
         <div class="brandSocialMedia">
-            <div class="facebook socIcon"><i class="fab fa-facebook-square"></i></div>
+            <div class="fa'[cebook socIcon"><i class="fab fa-facebook-square"></i></div>
             <div class="socIcon"><i class="fab fa-twitter-square"></i></div>
             <div class="socIcon"><i class="fab fa-instagram"></i></div>
             <div class="socIcon"><i class="fab fa-youtube"></i></div>
