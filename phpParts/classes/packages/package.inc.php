@@ -11,15 +11,9 @@ class Packages extends ourDBH {
         $quantitiesFound = $result->num_rows;
 
         if ($quantitiesFound === 0) {
-            echo "ERROR: the SQL failed to execute. <br>";
-            echo "SQL: $sql <br>";
-            echo "Error #: ". $dbh->errno . "<br>";
-            echo "Error msg: " . $dbh->error . " <br>";
-        } else{
-            while ( $pkg = $result->fetch_assoc() ){
-                $allPackages[] = $pkg;
-            }
+            echo "ERROR: "
             return $allPackages;
+    
         }
     }
 }
