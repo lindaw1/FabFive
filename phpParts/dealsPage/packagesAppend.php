@@ -34,7 +34,7 @@ function packagesAppend(){
         $datePkgEnd = strtotime($item['PkgEndDate']);
         if ($todayDate>=$datePkgStart && $todayDate<$datePkgEnd){
             
-            echo '<form class="packageItem" method="post" action="deals.php?action=add&id='.$item['PackageId'].'">';
+            echo '<form class="packageItem" method="post" action="deals.php?action=add&id='.$item['PkgName'].'-'.$item['PackageId'].'">';
             $dateExtract = explode("-",$item['PkgEndDate']);
             //  Processing Date Format   output under 'YYY-MM-DD' we extract and reformat to DD Month Year
             $endDate = round((int)$dateExtract[2]).'th '. $dateNum2Word[$dateExtract[1]].' '.$dateExtract[0];
@@ -62,7 +62,7 @@ function packagesAppend(){
             echo '    <p class=" pkgSubDesc" >'.$item['PkgSubDesc'].'</p>';
                 
             echo '    <p class=" pkgDesc" >'.$item['PkgDesc'].'</p>';
-            echo '    <a href="order.php"> <div class="add2CartBttn">Add To Cart</div></a>';//<input type="submit" class="add2CartBttn" value="Add To Cart" name="addToCart"/> 
+            echo '    <input type="submit" class="add2CartBttn" value="Add To Cart" name="addToCart"/>';//<input type="submit" class="add2CartBttn" value="Add To Cart" name="addToCart"/> 
             echo '</form>';
         }
     }

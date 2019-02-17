@@ -1,7 +1,6 @@
 <?php
 // APPENDING HEAD PART OF HTML PAGE
-// include_once __DIR__."/php/classes.php";
-// include_once __DIR__."/php/functions.php";
+ include_once __DIR__."/php/top.php";
 
 // APPENDING HEAD PART OF HTML PAGE
     include_once __DIR__.'/phpParts/htmlSections/head.php';

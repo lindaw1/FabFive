@@ -69,6 +69,7 @@ nav {
 .shoppingCartLogoContainer{
     left: 90%;   
     top: 2.3vh; /*If change bar height this needs change*/
+    position: relative;
 }
 
 .aboutLink, .contactLink, .dealsLink{
@@ -169,6 +170,18 @@ top: calc(20/50*100%);
 bottom: 0%;
 }
 
+/* Number of item in cart selected */
+.numItems{
+    position: absolute;
+    font-family:"Segoe UI";
+    background-color: rgba(255, 217, 0, 0.719);
+    color: black;
+    font-size: 3vh;
+    border-radius: 80%;
+    top: -100%;
+    left: 50%;
+    padding: 0 1.5vh;
+}
 /* ***************************Nav Styling Ends****************************************** */
 
 
@@ -424,7 +437,7 @@ main{
 }
 .salePackageTitle:hover{
     color: white;
-    text-shadow: 4px 4px 10px rgb(240, 205, 8);
+    text-shadow: 4px 4px 10px rgba(202, 232, 241, 0.281);
 }
 .salePackageTitle:nth-child(2n):hover{
     color: white;
@@ -519,7 +532,7 @@ main.dealsContent{
     padding-top: 1vh;
     padding-bottom: 0;
     height: 150vh;
-    background-color: rgb(31, 21, 21);
+    background-color: rgb(204, 194, 194);
     position: relative;
     color: white;
 }
@@ -539,7 +552,8 @@ h1.dealsTitle{
     font-weight: 300;
     position: absolute;
     left: 5%;
-    top: 2%;  
+    top: 2%;
+    color: black;  
 }
 
 .packagesDisplayWrapper{
@@ -690,7 +704,7 @@ a.allReview:hover{
     color: white;
     text-shadow: 0px 0px 6px black;
 }
-div.add2CartBttn{
+input.add2CartBttn{
     position: absolute;
     border-radius: 18px;
     padding: 1% 5%;
@@ -704,7 +718,7 @@ div.add2CartBttn{
     top: 66%;
     cursor: pointer;
 }
-div.add2CartBttn:hover{
+input.add2CartBttn:hover{
     color: white;
     border: 1px groove goldenrod;
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
@@ -906,7 +920,7 @@ div.mainContact{
     width: 100%;
     height: auto;
     padding-top: 14vh;
-    background-color: rgb(31, 21, 21);
+    background-color: rgb(204, 194, 194);
 }
 h1.contactTitle{
     font-family: 'Segoe UI';
@@ -915,6 +929,7 @@ h1.contactTitle{
     left: 5%;
     top: 2%;
     margin: 4vh 0 0 10vw;  
+    color: black;
 }
 div.positionPic{
     width: 35vw;
@@ -949,12 +964,14 @@ h1.cityTitle{
     top: 90%;
     left: 50%;
     text-shadow: 1px 6px 14px #000000;
+    color: white;
 }
 div.AgencyContent{
     width: 100%;
     height: 50vh;
     margin: 15vh 0 5vh 0;
     position: relative;
+    color: black;
 }
 div.address{
     position: absolute;
@@ -962,6 +979,7 @@ div.address{
     font-size: 5vh;
     top: 70%;
     left: 68%;
+    color: black;
 }
 h1.ourAgents{
     position: relative;
@@ -974,19 +992,116 @@ table.agentsTable{
     position: absolute;
     left: 8%;
     top: 25%;
+    color: black;
 }
 tr.rowAgent{
     padding: 20px 0;
 }
 /* ***************************************************************************************************** */
 /* ************************************************************************************************************************ */
-/* Order Page Styling */
+/* Order Page Styling with items*/
 main.orderContent{
-    padding-top: 14vh;
     width: 100%;
     height: 150vh;
     background-color: white;
 }
+header.order{
+    height: 21vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI';
+}
+h1.headerOrderTitle{
+    position: absolute;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 4vh;
+    top: 14.6vh;
+    left: 23vh;
+}
+/* Display Selections inside Shopping Cart */
+div.displayCartSelections{
+    font-family: 'Segoe UI';
+    position: relative;
+    top: 8%;
+    left: 2%;
+    width: 89vh;
+    height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+div.displayCartSelections::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+} 
+div.displayCartSelections::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 25px;
+}
+form.itemInCart{
+    position: relative;
+    width: 100%;
+    height: 30%;
+    margin: 3% 1%;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+.cartItemSection{
+    display: inline-block;
+}
+.itemImg{
+    width: 35%;
+    height: 100%;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.itemInfo{
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+.selPkgTitle,.selPkgCost,.selPkgQuanity{
+    position: absolute;
+}
+.selPkgTitle{
+    width: 100%;
+    top: 9%;
+    text-align:left;
+    font-size: 60%;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.selPkgCost{
+    width: 100%;
+    text-align: left;
+    font-size: 65%;
+    font-weight: 600;
+    top: 38%;
+}
+.selPkgQuanity{
+    width: 100%;
+    text-align: left;
+    font-size: 65%;
+    font-weight: 600;
+    top: 68%;
+}
+input.remvItemBttn{
+    position: absolute;
+    color:red;
+    text-transform: capitalize;
+    font-size: 45%;
+    font-weight: 200;
+    background-color: transparent;
+    border: none;
+    left: 76%;
+    top: 46%;
+    cursor: pointer;
+}
+
 div.wrapper{
     position: absolute;
     left: 28%;
@@ -1010,6 +1125,74 @@ div.wrapper{
 }
 img.orderButton{
     cursor: pointer;
+}
+/* NO ITEM IN CART */
+main.orderEmptyCart{
+    padding: 9vh 0;
+    width: 100%;
+    height: auto;
+    background-color: #CECDCD;
+    color: black;
+}
+div.boxDisplay{
+    position: relative;
+    left: 10vw;
+    width: 80vw;
+    height: 65vh;
+    background-color: white;
+    border-radius: 25px;
+}
+.imageCart{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%,-50%);
+    opacity: 0.4;
+}
+h1.noneCartTitle{
+    position: relative;
+    font-family: 'Segoe UI';
+    font-weight: 200;
+    font-size: 5vh;
+    left: 10%;
+    width: 20%;
+}
+div.noItemMessage{
+    position: absolute;
+    font-family: 'Segoe UI';
+    font-size: 4.5vh;
+    width: 100%;
+    top: 55%;
+    text-align: center;
+}
+a.toHome{
+    position: absolute;
+    width: auto;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 1%;
+    text-decoration: none;
+    border-radius: 15px;
+    border: 2px solid green;
+    left: 32%;
+    top: 74%;
+}
+a.toDeals{
+    position: absolute;
+    width: auto;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 1% 3%;
+    text-decoration: none;
+    border-radius: 15px;
+    border: 2px solid rgb(0, 92, 128);
+    left: 55%;
+    top: 74%;
+}
+a.toDeals:hover,a.toHome:hover{
+    color: rgb(226, 248, 100);
 }
 /* *********************************************************************************************************************************** */
 

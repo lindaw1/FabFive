@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2019 at 08:54 PM
+-- Generation Time: Feb 15, 2019 at 10:22 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -103,24 +103,7 @@ INSERT INTO `agents` (`AgentId`, `AgtFirstName`, `AgtMiddleInitial`, `AgtLastNam
 (6, 'Bruce', 'J.', 'Dixon', '(403) 210-7867', 'bruce.dixon@travelexperts.com', 'Intermediate Agent', 2, ''),
 (7, 'Beverly', 'S.', 'Jones', '(403) 210-7812', 'beverly.jones@travelexperts.com', 'Intermediate Agent', 1, ''),
 (8, 'Jane', NULL, 'Merrill', '(403) 210-7868', 'jane.merrill@travelexperts.com', 'Senior Agent', 2, ''),
-(9, 'Brian', 'S.', 'Peterson', '(403) 210-7833', 'brian.peterson@travelexperts.com', 'Junior Agent', 2, ''),
-(10, 'Haken', NULL, 'Loob', NULL, NULL, NULL, NULL, ''),
-(25, 'Fred', 'J', 'Jones', '403-555-5556', 'sam@travelexperts.com', 'Agent', 1, ''),
-(26, 'Fred', 'J', 'Jones', '403-555-5556', 'sam@travelexperts.com', 'Agent', 1, ''),
-(27, 'Fred', 'J', 'Jones', '403-555-5556', 'sam@travelexperts.com', 'Agent', 1, ''),
-(28, 'Fred', 'J', 'Jones', '403-555-5556', 'sam@travelexperts.com', 'Agent', 1, ''),
-(29, 'Fred', 'J', 'Jones', '403-555-5556', 'sam@travelexperts.com', 'Agent', 1, ''),
-(30, 'Fred', 'J', 'Jones', '403-555-5556', 'sam@travelexperts.com', 'Agent', 1, ''),
-(31, 'Fred', 'J', 'Jones', '403-555-5556', 'sam@travelexperts.com', 'Agent', 1, ''),
-(32, 'TestFirst', NULL, NULL, NULL, NULL, NULL, NULL, ''),
-(33, 'TestFirst', 'M', NULL, NULL, NULL, NULL, NULL, ''),
-(34, 'TestFirst', 'M', NULL, NULL, NULL, NULL, NULL, ''),
-(35, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ''),
-(36, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ''),
-(37, 'TestFirst', 'M', NULL, NULL, NULL, NULL, NULL, ''),
-(38, 'TestFirst', 'M', NULL, NULL, NULL, NULL, NULL, ''),
-(39, 'TestFirst', 'M', 'TestLast', '(403) 555-5555', 'Test Address', 'Agent', 1, 'TestFirst'),
-(40, 'TestFirst', 'M', 'TestLast', '(403) 555-5555', 'Test Address', 'Agent', 1, 'testPassword');
+(9, 'Brian', 'S.', 'Peterson', '(403) 210-7833', 'brian.peterson@travelexperts.com', 'Junior Agent', 2, '');
 
 -- --------------------------------------------------------
 
@@ -616,6 +599,31 @@ INSERT INTO `customers_rewards` (`CustomerId`, `RewardId`, `RwdNumber`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `discountpackages`
+--
+
+CREATE TABLE `discountpackages` (
+  `idDiscount` int(11) NOT NULL,
+  `discountValue` float NOT NULL,
+  `disStartDate` date NOT NULL,
+  `disEndDate` date NOT NULL,
+  `pkgId_fk` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `discountpackages`
+--
+
+INSERT INTO `discountpackages` (`idDiscount`, `discountValue`, `disStartDate`, `disEndDate`, `pkgId_fk`) VALUES
+(1, 0.9, '2019-02-12', '2019-02-17', 1),
+(2, 0.5, '2019-02-11', '2019-02-16', 6),
+(3, 0.6, '2019-02-12', '2019-02-17', 5),
+(4, 0.65, '2019-02-13', '2019-02-16', 3),
+(5, 0.95, '2019-02-13', '2019-02-16', 14);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `fees`
 --
 
@@ -648,22 +656,36 @@ INSERT INTO `fees` (`FeeId`, `FeeName`, `FeeAmt`, `FeeDesc`) VALUES
 CREATE TABLE `packages` (
   `PackageId` int(11) NOT NULL,
   `PkgName` varchar(50) NOT NULL,
-  `PkgStartDate` datetime DEFAULT NULL,
-  `PkgEndDate` datetime DEFAULT NULL,
-  `PkgDesc` varchar(50) DEFAULT NULL,
+  `PkgStartDate` date DEFAULT NULL,
+  `PkgEndDate` date DEFAULT NULL,
+  `PkgDesc` text,
+  `PkgSubDesc` varchar(40) NOT NULL,
   `PkgBasePrice` decimal(19,4) NOT NULL,
-  `PkgAgencyCommission` decimal(19,4) DEFAULT NULL
+  `PkgAgencyCommission` decimal(19,4) DEFAULT NULL,
+  `PkgReviewScore` int(1) NOT NULL,
+  `numPkgReviews` int(5) NOT NULL,
+  `PkgPicUrl` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `packages`
 --
 
-INSERT INTO `packages` (`PackageId`, `PkgName`, `PkgStartDate`, `PkgEndDate`, `PkgDesc`, `PkgBasePrice`, `PkgAgencyCommission`) VALUES
-(1, 'Caribbean New Year', '2017-12-25 00:00:00', '2017-01-04 00:00:00', 'Cruise the Caribbean & Celebrate the New Year.', '4800.0000', '400.0000'),
-(2, 'Polynesian Paradise', '2016-12-12 00:00:00', '2016-12-20 00:00:00', '8 Day All Inclusive Hawaiian Vacation', '3000.0000', '310.0000'),
-(3, 'Asian Expedition', '2016-05-14 00:00:00', '2016-05-28 00:00:00', 'Airfaire, Hotel and Eco Tour.', '2800.0000', '300.0000'),
-(4, 'European Vacation', '2016-11-01 00:00:00', '2016-11-14 00:00:00', 'Euro Tour with Rail Pass and Travel Insurance', '3000.0000', '280.0000');
+INSERT INTO `packages` (`PackageId`, `PkgName`, `PkgStartDate`, `PkgEndDate`, `PkgDesc`, `PkgSubDesc`, `PkgBasePrice`, `PkgAgencyCommission`, `PkgReviewScore`, `numPkgReviews`, `PkgPicUrl`) VALUES
+(1, 'India Colorful Festival Tour', '2019-12-11', '2019-02-24', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.', 'Delhi,Kolkata,Bangalore,Hyderabad', '4800.1200', '400.0000', 5, 13, 'india.jpg'),
+(2, 'Hawaii Tour', '2019-02-15', '2019-03-30', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. ', 'injected humour, or randomised words whi', '3000.0000', '510.0000', 4, 31, 'polynesian.jpg'),
+(3, 'Asian Expedition', '2019-02-13', '2019-03-28', 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 'Willy Wonka, Uncover Many, Web Sites', '2800.0000', '300.0000', 3, 39, 'asianExp.jpg'),
+(4, 'European Vacation', '2019-12-02', '2019-02-28', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC.', 'Contrary to popular belief, Lorem Ipsum ', '3000.0000', '280.0000', 5, 22, 'europeTour.jpg'),
+(5, 'Bhavana Private Villas', '2019-02-12', '2019-02-20', 'It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32', 'It has roots in a piece of classical Lat', '2301.1200', '231.0000', 4, 21, 'bali.jpg'),
+(6, 'Tokyo Adventure', '2019-02-12', '2019-02-20', 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 'literature, discovered the undoubtable s', '2313.0100', '230.0000', 5, 213, 'japan.jpg'),
+(7, 'Singapore Food Expedition Tour', '2019-02-11', '2019-02-20', 'If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.', 'Lorem Ipsum,Lorem Ipsum,Lorem Ipsum,', '2132.1100', '213.1000', 5, 214, 'singapore.jpg'),
+(8, 'Norway Diving Adventure', '2019-02-11', '2019-02-18', 'If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. ', 'sentence structures, to generate Lorem I', '2131.1200', '231.1100', 5, 45, 'norwayDiving.jpg'),
+(9, 'Spring Breakers Caribbean', '2019-02-11', '2019-02-18', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.', 'Cruise the Caribbean & Celebrate the Spr', '2132.1200', '231.2300', 4, 213, 'carribeanSpring.jpg'),
+(10, 'Thailand Adventure', '2019-02-12', '2019-04-10', 'If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. ', 'Lorem Ipsum comes from sections 1.10.32 ', '2102.2100', '232.0000', 4, 23, 'thailand.jpg'),
+(11, 'Around Mexico Tour', '2019-02-11', '2019-02-18', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable,but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ', 'Our greatest glory is not in never falli', '2102.2300', '234.0000', 5, 23, 'mexico.jpg'),
+(12, '4 Canadian Rockies Expedition ', '2019-02-11', '2019-02-18', 'All our dreams can come true, if we have the courage to pursue them.\r\nIt does not matter how slowly you go as long as you do not stop.\r\n Everything you’ve ever wanted is on the other side of fear. \r\nHardships often prepare ordinary people for an extraordinary destiny.', 'Daly City, California. Sponsored by THQ,', '1281.1100', '231.0000', 3, 21, 'banffTour.jpg'),
+(13, 'The Dubai Fountain', '2019-02-11', '2019-03-21', 'Dubai is a city and emirate in the United Arab Emirates known for luxury shopping, ultramodern architecture and a lively nightlife scene.', 'The Extremes of Good and Evil', '1283.1200', '231.0000', 3, 5, 'dubai1.jpg'),
+(14, 'What Happens In Vegas ?', '2019-02-13', '2019-02-20', 'Before they do so, Jack uses a quarter Joy gives him in a slot machine. He hits a three million dollar jackpot and Joy reminds Jack that they are married and hence, she is entitled to half of the money. ', 'California, Venice, DaHood', '1014.1100', '231.0000', 5, 43, 'vegas.jpg');
 
 -- --------------------------------------------------------
 
@@ -1430,6 +1452,13 @@ ALTER TABLE `customers_rewards`
   ADD KEY `RewardsCustomers_Rewards` (`RewardId`);
 
 --
+-- Indexes for table `discountpackages`
+--
+ALTER TABLE `discountpackages`
+  ADD PRIMARY KEY (`idDiscount`),
+  ADD KEY `pkgId_fk` (`pkgId_fk`);
+
+--
 -- Indexes for table `fees`
 --
 ALTER TABLE `fees`
@@ -1542,10 +1571,16 @@ ALTER TABLE `customers`
   MODIFY `CustomerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
+-- AUTO_INCREMENT for table `discountpackages`
+--
+ALTER TABLE `discountpackages`
+  MODIFY `idDiscount` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `PackageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `PackageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -1604,6 +1639,12 @@ ALTER TABLE `customers`
 ALTER TABLE `customers_rewards`
   ADD CONSTRAINT `customers_rewards_ibfk_1` FOREIGN KEY (`CustomerId`) REFERENCES `customers` (`CustomerId`),
   ADD CONSTRAINT `customers_rewards_ibfk_2` FOREIGN KEY (`RewardId`) REFERENCES `rewards` (`RewardId`);
+
+--
+-- Constraints for table `discountpackages`
+--
+ALTER TABLE `discountpackages`
+  ADD CONSTRAINT `discountpackages_ibfk_1` FOREIGN KEY (`pkgId_fk`) REFERENCES `packages` (`PackageId`);
 
 --
 -- Constraints for table `packages_products_suppliers`

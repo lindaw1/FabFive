@@ -9,6 +9,7 @@
 //************************************************************************* */
 
 include_once('php/top.php'); 
+include_once 'php/functions.php';
 $agtAgenciesArray = myGetAgencies();
 $agtAgentsArray = myGetAgents();
 ?>

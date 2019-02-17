@@ -5,8 +5,6 @@
 // Add Navigation Bar
     include __DIR__.'/phpParts/pageParts/navBar.php';
 
-// Add Header Page
-include __DIR__.'/phpParts/dealsPage/dealsHeader.php';
 
 // Add OPENING <main> tag for home page
 // ********

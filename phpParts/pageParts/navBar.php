@@ -15,8 +15,17 @@ echo<<<NAVBAR
         <a href="deals.php" class="navItem dealsLink">Deals</a>
         <a href="index.php" > <div class="navItem  brandLogo"></div> </a>
         <button class="navItem signInButton">Sign In</button>
-        <div class=" navItem shoppingCartLogoContainer"><i class="fas fa-shopping-cart fa-2x"></i></div>
-    </nav>
 NAVBAR;
+    if(empty($_SESSION['shopping-cart'])){
+        $numSelected = '';
+    }else{
+        $numSelected =0;
+        foreach($_SESSION['shopping-cart'] as $selectedItemCart){
+            $numSelected+=$selectedItemCart['quantity'];
+        }
+        
+    }
+    echo'    <a class="shoppingCartLogoContainer" href="order.php"><img src="img/generalLogo/shoppingCart.svg" width="38vh" height="38vh" /><div class="numItems">'.$numSelected.'</div></div></a>';
+    echo'</nav>';
 
 ?>
